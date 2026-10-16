@@ -1,0 +1,1692 @@
+## evidence_id
+
+ev_af7d6248376fd562472828015812127bacb3e4746b537fa0479374f18d635895
+
+## subject.name
+
+hengine.dll
+
+## subject.digest
+
+| Key    | Value                                                            |
+|--------|------------------------------------------------------------------|
+| sha256 | 682cd39c7d621a39f8eebb9ca15d70ba130dab2869062d9af1196f6723976f5b |
+
+## subject.local_path
+
+C:\Users\Frank Gonzalez\Documents\opencodeproyects\bancobolpro\hercules_extracted\windows\64\hengine.dll
+
+## subject.format
+
+pe
+
+## subject.architecture
+
+x86_64
+
+## provider
+
+| Key     | Value  |
+|---------|--------|
+| id      | ghidra |
+| name    | Ghidra |
+| version | 12.1.4 |
+
+## analysis_profile.provider
+
+| Key     | Value  |
+|---------|--------|
+| id      | ghidra |
+| name    | Ghidra |
+| version | 12.1.4 |
+
+## analysis_profile.parameters.target_kind
+
+executable
+
+## analysis_profile.parameters.target_format
+
+pe
+
+## analysis_profile.parameters.executable_role
+
+shared-library
+
+## analysis_profile.parameters.managed
+
+false
+
+## analysis_profile.parameters.native_aot_metadata
+
+| Key                  | Value                       |
+|----------------------|-----------------------------|
+| contract_revision    | rtr-9.1-x64-pe-read-only-v3 |
+| source_bytes         | 134217728                   |
+| work_units           | 67108864                    |
+| working_memory_bytes | 67108864                    |
+| report_bytes         | 4194304                     |
+
+## analysis_profile.parameters.architecture
+
+x86_64
+
+## analysis_profile.parameters.available_architectures
+
+x86_64
+
+## analysis_profile.parameters.import_mode
+
+ephemeral-source-immutable
+
+## analysis_profile.parameters.pdb_observations
+
+program-info-v1
+
+## analysis_profile.parameters.annotation_policy
+
+atomic-function-entry-metadata-v1
+
+## analysis_profile.parameters.load_image_observations
+
+source-mappings-entry-context-v2
+
+## analysis_profile.parameters.function_body_evidence
+
+complete-inclusive-ranges-v1
+
+## analysis_profile.parameters.function_references
+
+complete-body-and-entry-reference-manager-v2
+
+## analysis_profile.parameters.call_relationship_coverage
+
+function-body-call-coverage-v5
+
+## analysis_profile.parameters.function_dossier_coverage
+
+observed-facets-and-call-relationships-v1
+
+## analysis_profile.parameters.string_inventory_evidence
+
+defined-data-coverage-v1
+
+## analysis_profile.parameters.location_resolution
+
+explicit-address-exact-entry-symbol-first-v3
+
+## analysis_profile.parameters.procedure_file_offset_resolution
+
+address-first-unique-target-source-mapping-v2
+
+## analysis_profile.parameters.instruction_flow_evidence
+
+decoded-return-pcode-v1
+
+## analysis_profile.parameters.instruction_references
+
+exact-address-incoming-v1
+
+## analysis_profile.parameters.function_boundary_observations
+
+ghidra-function-boundary-limitations-v3
+
+## analysis_profile.parameters.no_return_repair
+
+disabled-windows-p0
+
+## analysis_profile.parameters.process_launch
+
+official-headless-script-v1
+
+## analysis_profile.parameters.jump_table_evidence
+
+typed-case-default-blocks-v1
+
+## analysis_profile.parameters.decompiler_jump_loads
+
+true
+
+## analysis_profile.parameters.loader
+
+auto-from-header
+
+## analysis_profile.parameters.language_id
+
+auto-from-header
+
+## analysis_profile.parameters.compiler_spec_id
+
+auto-default
+
+## analysis_profile.parameters.analyzer_preset
+
+ghidra-default
+
+## analysis_profile.digest
+
+dcc676845881c04a2d22833fb35d26569462e033daee5e99a95edac5aa61ac05
+
+## predicate_type
+
+rea.analysis
+
+## operation
+
+procedure_pseudo_code
+
+## parameters
+
+| Key       | Value    |
+|-----------|----------|
+| procedure | 0x815570 |
+
+## raw_result.value
+
+
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 impl(uint param_1,undefined8 *param_2)
+
+{
+  code *pcVar1;
+  char cVar2;
+  int iVar3;
+  DWORD DVar4;
+  int iVar5;
+  undefined4 uVar6;
+  int iVar7;
+  BOOL BVar8;
+  __time64_t _Var9;
+  undefined8 *puVar10;
+  void *pvVar11;
+  char *pcVar12;
+  FILE *pFVar13;
+  char *pcVar14;
+  longlong extraout_RAX;
+  int *piVar15;
+  undefined8 uVar16;
+  longlong extraout_RAX_00;
+  longlong lVar17;
+  ulonglong uVar18;
+  undefined1 *puVar19;
+  longlong lVar20;
+  undefined8 *puVar21;
+  ulonglong uVar22;
+  char *pcVar23;
+  uint uVar24;
+  bool bVar25;
+  undefined1 auStack_4c8 [32];
+  char *local_4a8;
+  char *local_4a0;
+  int local_498;
+  int local_488 [2];
+  int local_480;
+  undefined4 local_47c;
+  uint local_478;
+  undefined8 local_470;
+  undefined8 *local_468;
+  undefined1 local_460 [4];
+  undefined1 local_45c [4];
+  undefined8 local_458;
+  undefined1 local_450 [8];
+  undefined8 local_448 [50];
+  char *local_2b8 [2];
+  longlong local_2a8;
+  undefined8 local_2a0;
+  CHAR local_268 [272];
+  undefined1 local_158 [272];
+  ulonglong local_48;
+  
+                    /* 0x1f5570  19  impl */
+  local_48 = DAT_008da008 ^ (ulonglong)auStack_4c8;
+  lVar20 = (longlong)(int)param_1;
+  uVar18 = 0;
+  uVar24 = 0;
+  local_488[0] = 0;
+  local_480 = 0;
+  local_478 = param_1;
+  local_468 = param_2;
+  iVar3 = fthread_mutexattr_init(local_2b8);
+  if (iVar3 != 0) {
+LAB_00816dae:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar3 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar3 == 0) {
+    iVar3 = ptt_pthread_mutex_init(&local_2a8,local_2b8,"impl.c:358");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar3 != 0) goto LAB_00816dae;
+  ptt_pthread_mutex_lock(&local_2a8,"impl.c:359");
+  ptt_pthread_mutex_unlock(&local_2a8);
+  fthread_mutex_destroy();
+  _Var9 = _time64((__time64_t *)0x0);
+  srand((uint)_Var9);
+  memset(sysblk_exref,0,0xc720);
+  w32_mlock(sysblk_exref,0xc720);
+  _setmaxstdio(0x800);
+  pcVar1 = sysblk_exref;
+  *(undefined8 *)sysblk_exref = 0x2020202020202020;
+  *(undefined8 *)(pcVar1 + 8) = 0x2020202020202020;
+  *(undefined8 *)(sysblk_exref + 0x10) = 0x2020202020202020;
+  pcVar1 = sysblk_exref;
+  *(undefined8 *)(sysblk_exref + 0xc708) = 0x2020202020202020;
+  *(undefined8 *)(pcVar1 + 0xc710) = 0x2020202020202020;
+  *(ulonglong *)(sysblk_exref + 0x18) =
+       (ulonglong)sysblk_exref >> 0x38 | ((ulonglong)sysblk_exref & 0xff000000000000) >> 0x28 |
+       ((ulonglong)sysblk_exref & 0xff0000000000) >> 0x18 |
+       ((ulonglong)sysblk_exref & 0xff00000000) >> 8 | ((ulonglong)sysblk_exref & 0xff000000) << 8 |
+       ((ulonglong)sysblk_exref & 0xff0000) << 0x18 | ((ulonglong)sysblk_exref & 0xff00) << 0x28 |
+       (longlong)sysblk_exref << 0x38;
+  pcVar1 = sysblk_exref;
+  *(undefined4 *)sysblk_exref = 0x42535953;
+  *(undefined2 *)(pcVar1 + 4) = 0x4b4c;
+  *(undefined4 *)(sysblk_exref + 0x10) = 0x38302e33;
+  *(undefined4 *)(sysblk_exref + 0x20) = 0x20c70000;
+  local_4a8 = "SYSBLK";
+  _snprintf_s((char *)&local_2a8,0x20,0xffffffffffffffff,"END%13.13s");
+  pcVar1 = sysblk_exref;
+  lVar17 = 6;
+  *(longlong *)(sysblk_exref + 0xc708) = local_2a8;
+  *(undefined8 *)(pcVar1 + 0xc710) = local_2a0;
+  puVar21 = local_448;
+  do {
+    puVar10 = puVar21;
+    *puVar10 = 0;
+    puVar10[1] = 0;
+    puVar10[2] = 0;
+    lVar17 = lVar17 + -1;
+    puVar10[3] = 0;
+    puVar10[4] = 0;
+    puVar10[5] = 0;
+    puVar10[6] = 0;
+    puVar10[7] = 0;
+    puVar21 = puVar10 + 8;
+  } while (lVar17 != 0);
+  puVar10[8] = 0;
+  iVar3 = -1;
+  puVar10[9] = 0;
+  DVar4 = GetCurrentThreadId();
+  w32_set_thread_name(DVar4,&DAT_008a8e64);
+  init_hostinfo(hostinfo_exref);
+  socket_init();
+  atexit(hdl_shut_exref);
+  if ((int)param_1 < 1) {
+    pcVar12 = _strdup("hercules");
+    *(char **)(sysblk_exref + 0x28) = pcVar12;
+    pcVar12 = _strdup("");
+  }
+  else {
+    uVar22 = uVar18;
+    if (0 < lVar20) {
+      do {
+        lVar17 = -1;
+        pcVar12 = (char *)param_2[uVar18];
+        do {
+          if (lVar17 == 0) break;
+          lVar17 = lVar17 + -1;
+          cVar2 = *pcVar12;
+          pcVar12 = pcVar12 + 1;
+        } while (cVar2 != '\0');
+        uVar18 = uVar18 + 1;
+        uVar24 = (int)uVar22 + ~(uint)lVar17;
+        uVar22 = (ulonglong)uVar24;
+      } while ((longlong)uVar18 < lVar20);
+    }
+    pvVar11 = malloc((longlong)(int)uVar24);
+    *(void **)(sysblk_exref + 0x38) = pvVar11;
+    strlcpy(*(undefined8 *)(sysblk_exref + 0x38),*param_2);
+    lVar17 = 1;
+    if (1 < lVar20) {
+      do {
+        strlcat(*(undefined8 *)(sysblk_exref + 0x38),&DAT_0088787c,(longlong)(int)uVar24);
+        strlcat(*(undefined8 *)(sysblk_exref + 0x38),param_2[lVar17]);
+        lVar17 = lVar17 + 1;
+      } while (lVar17 < lVar20);
+    }
+    lVar20 = -1;
+    pcVar12 = (char *)*param_2;
+    do {
+      if (lVar20 == 0) break;
+      lVar20 = lVar20 + -1;
+      cVar2 = *pcVar12;
+      pcVar12 = pcVar12 + 1;
+    } while (cVar2 != '\0');
+    if (lVar20 == -2) {
+      pcVar12 = _strdup("hercules");
+      *(char **)(sysblk_exref + 0x28) = pcVar12;
+      pcVar12 = _strdup("");
+    }
+    else {
+      GetModuleFileNameA((HMODULE)0x0,local_268,0x104);
+      pcVar12 = (char *)w32_basename(local_268);
+      pcVar12 = _strdup(pcVar12);
+      *(char **)(sysblk_exref + 0x28) = pcVar12;
+      pcVar12 = (char *)w32_dirname(local_268);
+      pcVar12 = _strdup(pcVar12);
+    }
+  }
+  uVar18 = 0;
+  *(char **)(sysblk_exref + 0x30) = pcVar12;
+  set_symbol("VERSION","4.00.0");
+  set_symbol("BDATE","Jul 15 2013");
+  set_symbol("BTIME","13:55:06");
+  if (((*(int *)(hostinfo_exref + 0xfc) == 0) || (*(int *)(hostinfo_exref + 0xf4) == 0)) ||
+     (*(int *)(hostinfo_exref + 0xf8) == 0)) {
+    iVar5 = *(int *)(hostinfo_exref + 0xf0);
+    if (iVar5 < 2) {
+      puVar19 = &DAT_008a8ecc;
+      if (iVar5 != 1) {
+        puVar19 = &DAT_0088721f;
+      }
+      strlcpy(&local_2a8,puVar19);
+    }
+    else {
+      local_4a8 = (char *)CONCAT44(local_4a8._4_4_,iVar5);
+      _snprintf_s((char *)&local_2a8,0x40,0xffffffffffffffff,"MP=%d");
+    }
+  }
+  else {
+    local_4a0 = (char *)CONCAT44(local_4a0._4_4_,*(int *)(hostinfo_exref + 0xf4));
+    local_4a8 = (char *)CONCAT44(local_4a8._4_4_,*(int *)(hostinfo_exref + 0xf8));
+    local_498 = *(int *)(hostinfo_exref + 0xfc);
+    _snprintf_s((char *)&local_2a8,0x40,0xffffffffffffffff,"LP=%d, Cores=%d, CPUs=%d");
+  }
+  set_symbol("HOSTNAME",hostinfo_exref + 0x38);
+  set_symbol("HOSTOS",hostinfo_exref + 0x24);
+  set_symbol("HOSTOSREL",hostinfo_exref + 0x4c);
+  set_symbol("HOSTOSVER",hostinfo_exref + 0x60);
+  set_symbol("HOSTARCH",hostinfo_exref + 0x92);
+  set_symbol("HOSTNUMCPUS",&local_2a8);
+  set_symbol("MODNAME",*(undefined8 *)(sysblk_exref + 0x28));
+  set_symbol("MODPATH",*(undefined8 *)(sysblk_exref + 0x30));
+  sysblk_exref[0xae8] = (code)0x1f;
+  *(undefined4 *)(sysblk_exref + 0xc6f0) = 0xffff;
+  pcVar12 = _strdup("3270");
+  *(char **)(sysblk_exref + 0xd38) = pcVar12;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 0x20000;
+  *(uint *)(sysblk_exref + 0xbd8) = *(uint *)(sysblk_exref + 0xbd8) | 1;
+  *(undefined8 *)(sysblk_exref + 0xae0) = 0;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 0x10;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) & 0xffffffdf;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 1;
+  sysblk_exref[0xaea] = (code)0x81;
+  iVar5 = _getpid();
+  *(int *)(sysblk_exref + 0x40) = iVar5;
+  uVar6 = fthread_self();
+  *(undefined4 *)(sysblk_exref + 0xac) = uVar6;
+  _time64((__time64_t *)(sysblk_exref + 0x48));
+  *(undefined8 *)(sysblk_exref + 0xa0) = 0x105860000;
+  *(undefined8 *)(sysblk_exref + 0xcb8) = 0x7ffffffff7de7fff;
+  *(undefined4 *)(sysblk_exref + 0xaf0) = 0x32;
+  *(undefined4 *)(sysblk_exref + 0xcc4) = 0;
+  *(undefined4 *)(sysblk_exref + 0xcc8) = 0xffffffec;
+  *(undefined4 *)(sysblk_exref + 0xccc) = 0xf;
+  *(undefined4 *)(sysblk_exref + 0xcd0) = 8;
+  *(undefined4 *)(sysblk_exref + 0xcd4) = 4;
+  *(undefined4 *)(sysblk_exref + 0xa60) = 3;
+  *(undefined4 *)(sysblk_exref + 0xa64) = 1;
+  *(undefined4 *)(sysblk_exref + 0xa68) = 10;
+  *(uint *)(sysblk_exref + 0xcb0) = *(uint *)(sysblk_exref + 0xcb0) & 0xfffdffff;
+  bVar25 = DAT_00bbd774 == 0;
+  *(undefined2 *)(sysblk_exref + 0xcb0) = 0x14;
+  *(undefined4 *)(sysblk_exref + 0xaec) = 500;
+  *(undefined2 *)(sysblk_exref + 0xd0c) = 0;
+  if (bVar25) {
+    FUN_00824020();
+  }
+  _DAT_00a143b0 = 0;
+  DAT_00a143b8 = 0;
+  uVar22 = uVar18;
+  do {
+    cVar2 = guest_to_host((&DAT_00a143d8)[uVar22]);
+    if ((cVar2 == ' ') || (iVar5 = isalnum((int)cVar2), iVar5 == 0)) break;
+    (&DAT_00a143b0)[uVar22] = cVar2;
+    uVar22 = uVar22 + 1;
+  } while (uVar22 < 8);
+  set_symbol("LPARNAME",&DAT_00a143b0);
+  local_4a8._0_4_ = (uint)*(ushort *)(sysblk_exref + 0xb4);
+  _snprintf_s((char *)local_2b8,8,0xffffffffffffffff,"%02X");
+  set_symbol("LPARNUM",local_2b8);
+  local_4a8._0_4_ = (uint)((ulonglong)*(undefined8 *)(sysblk_exref + 0xa0) >> 0x20) & 0xffffff;
+  _snprintf_s((char *)local_2b8,8,0xffffffffffffffff,"%06X");
+  set_symbol("CPUSERIAL",local_2b8);
+  local_4a8 = (char *)CONCAT44(local_4a8._4_4_,(uint)*(ushort *)(sysblk_exref + 0xa2));
+  _snprintf_s((char *)local_2b8,8,0xffffffffffffffff,"%04X");
+  set_symbol("CPUMODEL",local_2b8);
+  sysblk_exref[0x818] = (code)0x8;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  puVar21 = local_468;
+  if (iVar5 != 0) {
+LAB_00816d97:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x50,local_2b8,"impl.c:636");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d97;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d80:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x388,local_2b8,"impl.c:637");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d80;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d69:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x9e8,local_2b8,"impl.c:638");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d69;
+  *(undefined2 *)(sysblk_exref + 0x9e0) = 0xffff;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d52:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x9f8,local_2b8,"impl.c:640");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d52;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d3b:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xa08,local_2b8,"impl.c:641");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d3b;
+  *(undefined2 *)(sysblk_exref + 0x9e2) = 0xffff;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d24:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xa18,local_2b8,"impl.c:643");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d24;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d0d:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xc6f8,local_2b8,"impl.c:644");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d0d;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816cf6:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xac8,local_2b8,"impl.c:645");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816cf6;
+  ptt_pthread_rwlock_init(sysblk_exref + 0x798,0,"impl.c:653");
+  fthread_attr_init(sysblk_exref + 0xa28);
+  fthread_attr_setstacksize(sysblk_exref + 0xa28,0x100000);
+  fthread_attr_setdetachstate(sysblk_exref + 0xa28,0x44697363);
+  fthread_attr_init(sysblk_exref + 0xa40);
+  fthread_attr_setstacksize(sysblk_exref + 0xa40,0x100000);
+  fthread_attr_setdetachstate(sysblk_exref + 0xa40,0x4a6f696e);
+  ptt_pthread_cond_init(sysblk_exref + 0xd8,0,"impl.c:662");
+  do {
+    iVar5 = fthread_mutexattr_init(local_2b8);
+    if (iVar5 != 0) {
+LAB_00816cdf:
+      perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+      exit(1);
+    }
+    iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+    if (iVar5 == 0) {
+      iVar5 = ptt_pthread_mutex_init
+                        (sysblk_exref + (longlong)(int)uVar18 * 0x10 + 0xe8,local_2b8,"impl.c:666");
+    }
+    fthread_mutexattr_destroy(local_2b8);
+    if (iVar5 != 0) goto LAB_00816cdf;
+    uVar24 = (int)uVar18 + 1;
+    uVar18 = (ulonglong)uVar24;
+  } while ((int)uVar24 < 0x20);
+  ptt_pthread_cond_init(sysblk_exref + 0xce8,0,"impl.c:668");
+  ptt_pthread_cond_init(sysblk_exref + 0xcf8,0,"impl.c:669");
+  *(undefined4 *)(sysblk_exref + 0xd68) = 0x8d0;
+  pFVar13 = __iob_func();
+  iVar5 = _fileno(pFVar13 + 2);
+  iVar5 = _isatty(iVar5);
+  if (iVar5 == 0) {
+    pFVar13 = __iob_func();
+    iVar5 = _fileno(pFVar13 + 1);
+    iVar7 = _isatty(iVar5);
+    iVar5 = 1;
+    if (iVar7 != 0) goto LAB_0081631a;
+  }
+  else {
+LAB_0081631a:
+    iVar5 = 0;
+  }
+  *(uint *)(sysblk_exref + 0xc3c) =
+       *(uint *)(sysblk_exref + 0xc3c) ^ (iVar5 * 2 ^ *(uint *)(sysblk_exref + 0xc3c)) & 2;
+  logger_init();
+  set_codepage(0);
+  pFVar13 = __iob_func();
+  display_version(pFVar13 + 1,"Hercules",1);
+  uVar24 = local_478;
+  uVar18 = (ulonglong)(int)local_478;
+  if ((0 < (int)local_478) &&
+     (iVar5 = strncmp((char *)puVar21[uVar18 - 1],"EXTERNALGUI",0xb), iVar5 == 0)) {
+    local_478 = uVar24 - 1;
+    uVar18 = (ulonglong)local_478;
+    local_480 = 1;
+  }
+  iVar5 = (int)uVar18;
+  iVar7 = fthread_mutexattr_init(local_2b8);
+  if (iVar7 != 0) {
+LAB_00816cc8:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar7 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar7 == 0) {
+    iVar7 = ptt_pthread_mutex_init(sysblk_exref + 0xb00,local_2b8,"impl.c:735");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar7 != 0) goto LAB_00816cc8;
+  ptt_pthread_cond_init(sysblk_exref + 0xb20,0,"impl.c:736");
+  pcVar1 = sysblk_exref + 0xb48;
+  *(code **)(sysblk_exref + 0xb50) = pcVar1;
+  *(code **)(sysblk_exref + 0xb48) = pcVar1;
+  pcVar1 = sysblk_exref + 0xb38;
+  *(code **)(sysblk_exref + 0xb40) = pcVar1;
+  *(code **)(sysblk_exref + 0xb38) = pcVar1;
+  pcVar14 = getenv("HERCULES_CNF");
+  pcVar12 = "hercules.cnf";
+  if (pcVar14 != (char *)0x0) {
+    pcVar12 = pcVar14;
+  }
+  local_4a8 = (char *)0x0;
+  local_2b8[0] = pcVar12;
+  iVar7 = getopt_long(uVar18 & 0xffffffff,puVar21,"hf:db:vs:p:l:",&PTR_DAT_0090dbd0);
+  lVar20 = -1;
+  while (iVar7 != -1) {
+    switch(iVar7) {
+    case 0x62:
+      *(undefined8 *)(sysblk_exref + 0xd40) = *(undefined8 *)optarg_exref;
+      break;
+    default:
+      local_488[0] = 1;
+      break;
+    case 100:
+      *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 2;
+      break;
+    case 0x66:
+      local_2b8[0] = *(char **)optarg_exref;
+      break;
+    case 0x6c:
+      local_470 = 0;
+      pcVar12 = (char *)strtok_r(*(undefined8 *)optarg_exref,&DAT_008a903c,&local_470);
+      while (pcVar12 != (char *)0x0) {
+        if (0x30 < lVar20) {
+          logmsg("HHC01406W Startup parm -l: maximum loadable modules %d exceeded; remainder not loaded\n"
+                 ,0x32);
+          break;
+        }
+        iVar3 = iVar3 + 1;
+        lVar20 = lVar20 + 1;
+        pcVar12 = _strdup(pcVar12);
+        local_448[lVar20] = pcVar12;
+        pcVar12 = (char *)strtok_r(0,&DAT_008a903c,&local_470);
+      }
+      break;
+    case 0x70:
+      if (*(char **)optarg_exref != (char *)0x0) {
+        pcVar12 = _strdup(*(char **)optarg_exref);
+        hdl_setpath(pcVar12,0);
+      }
+      break;
+    case 0x73:
+      uVar22 = 0xffffffffffffffff;
+      local_470 = 0;
+      pcVar12 = *(char **)optarg_exref;
+      do {
+        if (uVar22 == 0) break;
+        uVar22 = uVar22 - 1;
+        cVar2 = *pcVar12;
+        pcVar12 = pcVar12 + 1;
+      } while (cVar2 != '\0');
+      if (2 < ~uVar22 - 1) {
+        pcVar12 = (char *)strtok_r(*(char **)optarg_exref,&DAT_008a9000,&local_470);
+        local_2a8 = strtok_r(0,&DAT_008a9000,&local_470);
+        if ((pcVar12 != (char *)0x0) && (local_2a8 != 0)) {
+          lVar17 = -1;
+          pcVar14 = pcVar12;
+          do {
+            if (lVar17 == 0) break;
+            lVar17 = lVar17 + -1;
+            cVar2 = *pcVar14;
+            pcVar14 = pcVar14 + 1;
+          } while (cVar2 != '\0');
+          iVar5 = 0;
+          pcVar14 = pcVar12;
+          if (0 < (int)(~(uint)lVar17 - 1)) {
+            do {
+              iVar7 = islower((int)*pcVar14);
+              if (iVar7 != 0) {
+                iVar7 = toupper((int)*pcVar14);
+                *pcVar14 = (char)iVar7;
+              }
+              lVar17 = -1;
+              pcVar23 = pcVar12;
+              do {
+                if (lVar17 == 0) break;
+                lVar17 = lVar17 + -1;
+                cVar2 = *pcVar23;
+                pcVar23 = pcVar23 + 1;
+              } while (cVar2 != '\0');
+              iVar5 = iVar5 + 1;
+              pcVar14 = pcVar14 + 1;
+            } while (iVar5 < (int)(~(uint)lVar17 - 1));
+            uVar18 = (ulonglong)local_478;
+          }
+          set_symbol(pcVar12,local_2a8);
+          puVar21 = local_468;
+          break;
+        }
+      }
+      logmsg("HHC01419E Symbol and/or Value is invalid; ignored\n");
+      break;
+    case 0x76:
+      *(uint *)(sysblk_exref + 0xc6f0) = *(uint *)(sysblk_exref + 0xc6f0) | 0x40000000;
+    }
+    pcVar12 = local_2b8[0];
+    iVar5 = (int)uVar18;
+    local_4a8 = (char *)0x0;
+    iVar7 = getopt_long(uVar18 & 0xffffffff,puVar21,"hf:db:vs:p:l:",&PTR_DAT_0090dbd0);
+  }
+  iVar7 = _stricmp(pcVar12,"None");
+  if (iVar7 == 0) {
+    pcVar12 = (char *)0x0;
+  }
+  if ((*(int *)optind_exref < iVar5) || (local_488[0] != 0)) {
+    local_2a8 = 0;
+    strncpy(local_268,*(char **)(sysblk_exref + 0x28),0x104);
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    uVar16 = strtok_r(local_268,&DAT_008a42c8,&local_2a8);
+    logmsg("HHC01407S Usage: %s [-f config-filename] [-d] [-b logo-filename] [-s sym=val]%s [> logfile]\n"
+           ,uVar16," [-p dyn-load-dir] [[-l dynmod-to-load]...]");
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    pFVar13 = __iob_func();
+    fflush(pFVar13 + 2);
+    pFVar13 = __iob_func();
+    fflush(pFVar13 + 1);
+    usleep(100000);
+    return 1;
+  }
+  FUN_0082a860();
+  hdl_main();
+  if (-1 < iVar3) {
+    lVar20 = 0;
+    iVar3 = 0;
+    puVar21 = local_448;
+    do {
+      iVar5 = (int)lVar20;
+      pvVar11 = (void *)*puVar21;
+      if (pvVar11 == (void *)0x0) break;
+      iVar5 = hdl_load(pvVar11,0);
+      if (iVar5 != 0) {
+        lVar20 = 1;
+      }
+      iVar5 = (int)lVar20;
+      free(pvVar11);
+      iVar3 = iVar3 + 1;
+      puVar21 = puVar21 + 1;
+    } while (iVar3 < 0x32);
+    if (iVar5 != 0) {
+      usleep(10000);
+      logmsg("HHC01408S Hercules terminating, see previous messages for reason\n");
+      goto LAB_0081685a;
+    }
+  }
+  if ((local_480 == 0) || (iVar3 = hdl_load("dyngui",0), iVar3 == 0)) {
+    signal(2);
+    if (extraout_RAX == -1) {
+      piVar15 = _errno();
+      uVar16 = w32_strerror(*piVar15);
+      pcVar12 = "SIGINT";
+    }
+    else {
+      signal(0xf);
+      if (extraout_RAX_00 == -1) {
+        piVar15 = _errno();
+        uVar16 = w32_strerror(*piVar15);
+        pcVar12 = "SIGTERM";
+      }
+      else {
+        BVar8 = IsDebuggerPresent();
+        if ((BVar8 != 0) || (BVar8 = SetConsoleCtrlHandler(FUN_00815140,1), BVar8 != 0)) {
+          iVar3 = fthread_mutexattr_init(local_488);
+          if (iVar3 == 0) {
+            iVar3 = fthread_mutexattr_settype(local_488,0x4f6e6365);
+            if (iVar3 == 0) {
+              iVar3 = ptt_pthread_mutex_init(sysblk_exref + 0xa70,local_488,"impl.c:986");
+            }
+            fthread_mutexattr_destroy(local_488);
+            if (iVar3 == 0) {
+              iVar3 = fthread_mutexattr_init(local_488);
+              if (iVar3 == 0) {
+                iVar3 = fthread_mutexattr_settype(local_488,0x4f6e6365);
+                if (iVar3 == 0) {
+                  iVar3 = ptt_pthread_mutex_init(sysblk_exref + 0xa90,local_488,"impl.c:987");
+                }
+                fthread_mutexattr_destroy(local_488);
+                if (iVar3 == 0) {
+                  *(undefined4 *)(sysblk_exref + 0xa80) = 0;
+                  *(undefined4 *)(sysblk_exref + 0xaa0) = 0;
+                  socketpair(2,1,0,&local_480);
+                  *(undefined4 *)(sysblk_exref + 0xa84) = local_47c;
+                  *(int *)(sysblk_exref + 0xa88) = local_480;
+                  socketpair(2,1,0,&local_480);
+                  *(undefined4 *)(sysblk_exref + 0xaa4) = local_47c;
+                  *(int *)(sysblk_exref + 0xaa8) = local_480;
+                  if (pcVar12 != (char *)0x0) {
+                    hostpath(local_158,pcVar12,0x104);
+                  }
+                  lVar20 = FUN_00645260();
+                  bVar25 = DAT_00bbd7b0 != 0;
+                  *(longlong *)(sysblk_exref + 0x98) = lVar20 << 8;
+                  if (bVar25) {
+                    local_4a0 = "impl.c:1079";
+                    local_4a8 = "log_do_callback";
+                    iVar3 = ptt_pthread_create(local_450,sysblk_exref + 0xa28,FUN_00815410,0);
+                    if (iVar3 != 0) {
+                      uVar16 = w32_strerror(iVar3);
+                      logmsg("HHC00102E Error in function create_thread(): %s\n",uVar16);
+                    }
+                    return 0;
+                  }
+                  hdl_adsc("release_config",FUN_0065f620,0);
+                  iVar3 = FUN_00629610(pcVar12);
+                  if (iVar3 == 0) {
+                    local_4a0 = "impl.c:1096";
+                    local_4a8 = "process_rc_file";
+                    iVar3 = ptt_pthread_create(local_45c,sysblk_exref + 0xa28,FUN_00815470,0);
+                    if (iVar3 != 0) {
+                      w32_strerror(iVar3);
+                      logmsg("HHC00102E Error in function create_thread(): %s\n");
+                    }
+                    if (((byte)sysblk_exref[0xc3c] & 2) == 0) {
+                      (**(code **)panel_display_exref)();
+                    }
+                    else {
+                      if (*(code **)daemon_task_exref == (code *)0x0) {
+                        *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 4;
+                        do {
+                          do {
+                            iVar3 = log_read(&local_458,local_460,1);
+                          } while (iVar3 == 0);
+                          pFVar13 = __iob_func();
+                          iVar5 = _fileno(pFVar13 + 2);
+                          iVar5 = _isatty(iVar5);
+                          if (iVar5 != 0) {
+                            pFVar13 = __iob_func();
+                            w32_fwrite(local_458,(longlong)iVar3,1,pFVar13 + 2);
+                          }
+                        } while( true );
+                      }
+                      (**(code **)daemon_task_exref)();
+                    }
+                    SetConsoleCtrlHandler(FUN_00815140,0);
+                    socket_deinit();
+                    pFVar13 = __iob_func();
+                    w32_fprintf(pFVar13 + 1,"HHC01412I Hercules terminated\n");
+                    pFVar13 = __iob_func();
+                    fflush(pFVar13 + 1);
+                    usleep(10000);
+                    return 0;
+                  }
+                  goto LAB_0081685a;
+                }
+              }
+              perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+              exit(1);
+            }
+          }
+          perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+          exit(1);
+        }
+        piVar15 = _errno();
+        uVar16 = w32_strerror(*piVar15);
+        pcVar12 = "Console-ctrl";
+      }
+    }
+    logmsg("HHC01410S Cannot register %s handler: %s\n",pcVar12,uVar16);
+  }
+  else {
+    usleep(10000);
+    logmsg("HHC01409S Load of dyngui.dll failed, hercules terminated\n");
+  }
+LAB_0081685a:
+  FUN_00814fd0();
+  return 1;
+}
+
+
+
+## raw_result.limitations
+
+Ghidra Listing reports a terminal call at 0x816bd3 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816bea to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816cd8 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816cef to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d06 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d1d to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d34 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d4b to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d62 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d79 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d90 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816da7 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816dc0 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.
+
+## normalized_result
+
+
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 impl(uint param_1,undefined8 *param_2)
+
+{
+  code *pcVar1;
+  char cVar2;
+  int iVar3;
+  DWORD DVar4;
+  int iVar5;
+  undefined4 uVar6;
+  int iVar7;
+  BOOL BVar8;
+  __time64_t _Var9;
+  undefined8 *puVar10;
+  void *pvVar11;
+  char *pcVar12;
+  FILE *pFVar13;
+  char *pcVar14;
+  longlong extraout_RAX;
+  int *piVar15;
+  undefined8 uVar16;
+  longlong extraout_RAX_00;
+  longlong lVar17;
+  ulonglong uVar18;
+  undefined1 *puVar19;
+  longlong lVar20;
+  undefined8 *puVar21;
+  ulonglong uVar22;
+  char *pcVar23;
+  uint uVar24;
+  bool bVar25;
+  undefined1 auStack_4c8 [32];
+  char *local_4a8;
+  char *local_4a0;
+  int local_498;
+  int local_488 [2];
+  int local_480;
+  undefined4 local_47c;
+  uint local_478;
+  undefined8 local_470;
+  undefined8 *local_468;
+  undefined1 local_460 [4];
+  undefined1 local_45c [4];
+  undefined8 local_458;
+  undefined1 local_450 [8];
+  undefined8 local_448 [50];
+  char *local_2b8 [2];
+  longlong local_2a8;
+  undefined8 local_2a0;
+  CHAR local_268 [272];
+  undefined1 local_158 [272];
+  ulonglong local_48;
+  
+                    /* 0x1f5570  19  impl */
+  local_48 = DAT_008da008 ^ (ulonglong)auStack_4c8;
+  lVar20 = (longlong)(int)param_1;
+  uVar18 = 0;
+  uVar24 = 0;
+  local_488[0] = 0;
+  local_480 = 0;
+  local_478 = param_1;
+  local_468 = param_2;
+  iVar3 = fthread_mutexattr_init(local_2b8);
+  if (iVar3 != 0) {
+LAB_00816dae:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar3 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar3 == 0) {
+    iVar3 = ptt_pthread_mutex_init(&local_2a8,local_2b8,"impl.c:358");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar3 != 0) goto LAB_00816dae;
+  ptt_pthread_mutex_lock(&local_2a8,"impl.c:359");
+  ptt_pthread_mutex_unlock(&local_2a8);
+  fthread_mutex_destroy();
+  _Var9 = _time64((__time64_t *)0x0);
+  srand((uint)_Var9);
+  memset(sysblk_exref,0,0xc720);
+  w32_mlock(sysblk_exref,0xc720);
+  _setmaxstdio(0x800);
+  pcVar1 = sysblk_exref;
+  *(undefined8 *)sysblk_exref = 0x2020202020202020;
+  *(undefined8 *)(pcVar1 + 8) = 0x2020202020202020;
+  *(undefined8 *)(sysblk_exref + 0x10) = 0x2020202020202020;
+  pcVar1 = sysblk_exref;
+  *(undefined8 *)(sysblk_exref + 0xc708) = 0x2020202020202020;
+  *(undefined8 *)(pcVar1 + 0xc710) = 0x2020202020202020;
+  *(ulonglong *)(sysblk_exref + 0x18) =
+       (ulonglong)sysblk_exref >> 0x38 | ((ulonglong)sysblk_exref & 0xff000000000000) >> 0x28 |
+       ((ulonglong)sysblk_exref & 0xff0000000000) >> 0x18 |
+       ((ulonglong)sysblk_exref & 0xff00000000) >> 8 | ((ulonglong)sysblk_exref & 0xff000000) << 8 |
+       ((ulonglong)sysblk_exref & 0xff0000) << 0x18 | ((ulonglong)sysblk_exref & 0xff00) << 0x28 |
+       (longlong)sysblk_exref << 0x38;
+  pcVar1 = sysblk_exref;
+  *(undefined4 *)sysblk_exref = 0x42535953;
+  *(undefined2 *)(pcVar1 + 4) = 0x4b4c;
+  *(undefined4 *)(sysblk_exref + 0x10) = 0x38302e33;
+  *(undefined4 *)(sysblk_exref + 0x20) = 0x20c70000;
+  local_4a8 = "SYSBLK";
+  _snprintf_s((char *)&local_2a8,0x20,0xffffffffffffffff,"END%13.13s");
+  pcVar1 = sysblk_exref;
+  lVar17 = 6;
+  *(longlong *)(sysblk_exref + 0xc708) = local_2a8;
+  *(undefined8 *)(pcVar1 + 0xc710) = local_2a0;
+  puVar21 = local_448;
+  do {
+    puVar10 = puVar21;
+    *puVar10 = 0;
+    puVar10[1] = 0;
+    puVar10[2] = 0;
+    lVar17 = lVar17 + -1;
+    puVar10[3] = 0;
+    puVar10[4] = 0;
+    puVar10[5] = 0;
+    puVar10[6] = 0;
+    puVar10[7] = 0;
+    puVar21 = puVar10 + 8;
+  } while (lVar17 != 0);
+  puVar10[8] = 0;
+  iVar3 = -1;
+  puVar10[9] = 0;
+  DVar4 = GetCurrentThreadId();
+  w32_set_thread_name(DVar4,&DAT_008a8e64);
+  init_hostinfo(hostinfo_exref);
+  socket_init();
+  atexit(hdl_shut_exref);
+  if ((int)param_1 < 1) {
+    pcVar12 = _strdup("hercules");
+    *(char **)(sysblk_exref + 0x28) = pcVar12;
+    pcVar12 = _strdup("");
+  }
+  else {
+    uVar22 = uVar18;
+    if (0 < lVar20) {
+      do {
+        lVar17 = -1;
+        pcVar12 = (char *)param_2[uVar18];
+        do {
+          if (lVar17 == 0) break;
+          lVar17 = lVar17 + -1;
+          cVar2 = *pcVar12;
+          pcVar12 = pcVar12 + 1;
+        } while (cVar2 != '\0');
+        uVar18 = uVar18 + 1;
+        uVar24 = (int)uVar22 + ~(uint)lVar17;
+        uVar22 = (ulonglong)uVar24;
+      } while ((longlong)uVar18 < lVar20);
+    }
+    pvVar11 = malloc((longlong)(int)uVar24);
+    *(void **)(sysblk_exref + 0x38) = pvVar11;
+    strlcpy(*(undefined8 *)(sysblk_exref + 0x38),*param_2);
+    lVar17 = 1;
+    if (1 < lVar20) {
+      do {
+        strlcat(*(undefined8 *)(sysblk_exref + 0x38),&DAT_0088787c,(longlong)(int)uVar24);
+        strlcat(*(undefined8 *)(sysblk_exref + 0x38),param_2[lVar17]);
+        lVar17 = lVar17 + 1;
+      } while (lVar17 < lVar20);
+    }
+    lVar20 = -1;
+    pcVar12 = (char *)*param_2;
+    do {
+      if (lVar20 == 0) break;
+      lVar20 = lVar20 + -1;
+      cVar2 = *pcVar12;
+      pcVar12 = pcVar12 + 1;
+    } while (cVar2 != '\0');
+    if (lVar20 == -2) {
+      pcVar12 = _strdup("hercules");
+      *(char **)(sysblk_exref + 0x28) = pcVar12;
+      pcVar12 = _strdup("");
+    }
+    else {
+      GetModuleFileNameA((HMODULE)0x0,local_268,0x104);
+      pcVar12 = (char *)w32_basename(local_268);
+      pcVar12 = _strdup(pcVar12);
+      *(char **)(sysblk_exref + 0x28) = pcVar12;
+      pcVar12 = (char *)w32_dirname(local_268);
+      pcVar12 = _strdup(pcVar12);
+    }
+  }
+  uVar18 = 0;
+  *(char **)(sysblk_exref + 0x30) = pcVar12;
+  set_symbol("VERSION","4.00.0");
+  set_symbol("BDATE","Jul 15 2013");
+  set_symbol("BTIME","13:55:06");
+  if (((*(int *)(hostinfo_exref + 0xfc) == 0) || (*(int *)(hostinfo_exref + 0xf4) == 0)) ||
+     (*(int *)(hostinfo_exref + 0xf8) == 0)) {
+    iVar5 = *(int *)(hostinfo_exref + 0xf0);
+    if (iVar5 < 2) {
+      puVar19 = &DAT_008a8ecc;
+      if (iVar5 != 1) {
+        puVar19 = &DAT_0088721f;
+      }
+      strlcpy(&local_2a8,puVar19);
+    }
+    else {
+      local_4a8 = (char *)CONCAT44(local_4a8._4_4_,iVar5);
+      _snprintf_s((char *)&local_2a8,0x40,0xffffffffffffffff,"MP=%d");
+    }
+  }
+  else {
+    local_4a0 = (char *)CONCAT44(local_4a0._4_4_,*(int *)(hostinfo_exref + 0xf4));
+    local_4a8 = (char *)CONCAT44(local_4a8._4_4_,*(int *)(hostinfo_exref + 0xf8));
+    local_498 = *(int *)(hostinfo_exref + 0xfc);
+    _snprintf_s((char *)&local_2a8,0x40,0xffffffffffffffff,"LP=%d, Cores=%d, CPUs=%d");
+  }
+  set_symbol("HOSTNAME",hostinfo_exref + 0x38);
+  set_symbol("HOSTOS",hostinfo_exref + 0x24);
+  set_symbol("HOSTOSREL",hostinfo_exref + 0x4c);
+  set_symbol("HOSTOSVER",hostinfo_exref + 0x60);
+  set_symbol("HOSTARCH",hostinfo_exref + 0x92);
+  set_symbol("HOSTNUMCPUS",&local_2a8);
+  set_symbol("MODNAME",*(undefined8 *)(sysblk_exref + 0x28));
+  set_symbol("MODPATH",*(undefined8 *)(sysblk_exref + 0x30));
+  sysblk_exref[0xae8] = (code)0x1f;
+  *(undefined4 *)(sysblk_exref + 0xc6f0) = 0xffff;
+  pcVar12 = _strdup("3270");
+  *(char **)(sysblk_exref + 0xd38) = pcVar12;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 0x20000;
+  *(uint *)(sysblk_exref + 0xbd8) = *(uint *)(sysblk_exref + 0xbd8) | 1;
+  *(undefined8 *)(sysblk_exref + 0xae0) = 0;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 0x10;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) & 0xffffffdf;
+  *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 1;
+  sysblk_exref[0xaea] = (code)0x81;
+  iVar5 = _getpid();
+  *(int *)(sysblk_exref + 0x40) = iVar5;
+  uVar6 = fthread_self();
+  *(undefined4 *)(sysblk_exref + 0xac) = uVar6;
+  _time64((__time64_t *)(sysblk_exref + 0x48));
+  *(undefined8 *)(sysblk_exref + 0xa0) = 0x105860000;
+  *(undefined8 *)(sysblk_exref + 0xcb8) = 0x7ffffffff7de7fff;
+  *(undefined4 *)(sysblk_exref + 0xaf0) = 0x32;
+  *(undefined4 *)(sysblk_exref + 0xcc4) = 0;
+  *(undefined4 *)(sysblk_exref + 0xcc8) = 0xffffffec;
+  *(undefined4 *)(sysblk_exref + 0xccc) = 0xf;
+  *(undefined4 *)(sysblk_exref + 0xcd0) = 8;
+  *(undefined4 *)(sysblk_exref + 0xcd4) = 4;
+  *(undefined4 *)(sysblk_exref + 0xa60) = 3;
+  *(undefined4 *)(sysblk_exref + 0xa64) = 1;
+  *(undefined4 *)(sysblk_exref + 0xa68) = 10;
+  *(uint *)(sysblk_exref + 0xcb0) = *(uint *)(sysblk_exref + 0xcb0) & 0xfffdffff;
+  bVar25 = DAT_00bbd774 == 0;
+  *(undefined2 *)(sysblk_exref + 0xcb0) = 0x14;
+  *(undefined4 *)(sysblk_exref + 0xaec) = 500;
+  *(undefined2 *)(sysblk_exref + 0xd0c) = 0;
+  if (bVar25) {
+    FUN_00824020();
+  }
+  _DAT_00a143b0 = 0;
+  DAT_00a143b8 = 0;
+  uVar22 = uVar18;
+  do {
+    cVar2 = guest_to_host((&DAT_00a143d8)[uVar22]);
+    if ((cVar2 == ' ') || (iVar5 = isalnum((int)cVar2), iVar5 == 0)) break;
+    (&DAT_00a143b0)[uVar22] = cVar2;
+    uVar22 = uVar22 + 1;
+  } while (uVar22 < 8);
+  set_symbol("LPARNAME",&DAT_00a143b0);
+  local_4a8._0_4_ = (uint)*(ushort *)(sysblk_exref + 0xb4);
+  _snprintf_s((char *)local_2b8,8,0xffffffffffffffff,"%02X");
+  set_symbol("LPARNUM",local_2b8);
+  local_4a8._0_4_ = (uint)((ulonglong)*(undefined8 *)(sysblk_exref + 0xa0) >> 0x20) & 0xffffff;
+  _snprintf_s((char *)local_2b8,8,0xffffffffffffffff,"%06X");
+  set_symbol("CPUSERIAL",local_2b8);
+  local_4a8 = (char *)CONCAT44(local_4a8._4_4_,(uint)*(ushort *)(sysblk_exref + 0xa2));
+  _snprintf_s((char *)local_2b8,8,0xffffffffffffffff,"%04X");
+  set_symbol("CPUMODEL",local_2b8);
+  sysblk_exref[0x818] = (code)0x8;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  puVar21 = local_468;
+  if (iVar5 != 0) {
+LAB_00816d97:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x50,local_2b8,"impl.c:636");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d97;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d80:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x388,local_2b8,"impl.c:637");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d80;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d69:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x9e8,local_2b8,"impl.c:638");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d69;
+  *(undefined2 *)(sysblk_exref + 0x9e0) = 0xffff;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d52:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0x9f8,local_2b8,"impl.c:640");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d52;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d3b:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xa08,local_2b8,"impl.c:641");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d3b;
+  *(undefined2 *)(sysblk_exref + 0x9e2) = 0xffff;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d24:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xa18,local_2b8,"impl.c:643");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d24;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816d0d:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xc6f8,local_2b8,"impl.c:644");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816d0d;
+  iVar5 = fthread_mutexattr_init(local_2b8);
+  if (iVar5 != 0) {
+LAB_00816cf6:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar5 == 0) {
+    iVar5 = ptt_pthread_mutex_init(sysblk_exref + 0xac8,local_2b8,"impl.c:645");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar5 != 0) goto LAB_00816cf6;
+  ptt_pthread_rwlock_init(sysblk_exref + 0x798,0,"impl.c:653");
+  fthread_attr_init(sysblk_exref + 0xa28);
+  fthread_attr_setstacksize(sysblk_exref + 0xa28,0x100000);
+  fthread_attr_setdetachstate(sysblk_exref + 0xa28,0x44697363);
+  fthread_attr_init(sysblk_exref + 0xa40);
+  fthread_attr_setstacksize(sysblk_exref + 0xa40,0x100000);
+  fthread_attr_setdetachstate(sysblk_exref + 0xa40,0x4a6f696e);
+  ptt_pthread_cond_init(sysblk_exref + 0xd8,0,"impl.c:662");
+  do {
+    iVar5 = fthread_mutexattr_init(local_2b8);
+    if (iVar5 != 0) {
+LAB_00816cdf:
+      perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+      exit(1);
+    }
+    iVar5 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+    if (iVar5 == 0) {
+      iVar5 = ptt_pthread_mutex_init
+                        (sysblk_exref + (longlong)(int)uVar18 * 0x10 + 0xe8,local_2b8,"impl.c:666");
+    }
+    fthread_mutexattr_destroy(local_2b8);
+    if (iVar5 != 0) goto LAB_00816cdf;
+    uVar24 = (int)uVar18 + 1;
+    uVar18 = (ulonglong)uVar24;
+  } while ((int)uVar24 < 0x20);
+  ptt_pthread_cond_init(sysblk_exref + 0xce8,0,"impl.c:668");
+  ptt_pthread_cond_init(sysblk_exref + 0xcf8,0,"impl.c:669");
+  *(undefined4 *)(sysblk_exref + 0xd68) = 0x8d0;
+  pFVar13 = __iob_func();
+  iVar5 = _fileno(pFVar13 + 2);
+  iVar5 = _isatty(iVar5);
+  if (iVar5 == 0) {
+    pFVar13 = __iob_func();
+    iVar5 = _fileno(pFVar13 + 1);
+    iVar7 = _isatty(iVar5);
+    iVar5 = 1;
+    if (iVar7 != 0) goto LAB_0081631a;
+  }
+  else {
+LAB_0081631a:
+    iVar5 = 0;
+  }
+  *(uint *)(sysblk_exref + 0xc3c) =
+       *(uint *)(sysblk_exref + 0xc3c) ^ (iVar5 * 2 ^ *(uint *)(sysblk_exref + 0xc3c)) & 2;
+  logger_init();
+  set_codepage(0);
+  pFVar13 = __iob_func();
+  display_version(pFVar13 + 1,"Hercules",1);
+  uVar24 = local_478;
+  uVar18 = (ulonglong)(int)local_478;
+  if ((0 < (int)local_478) &&
+     (iVar5 = strncmp((char *)puVar21[uVar18 - 1],"EXTERNALGUI",0xb), iVar5 == 0)) {
+    local_478 = uVar24 - 1;
+    uVar18 = (ulonglong)local_478;
+    local_480 = 1;
+  }
+  iVar5 = (int)uVar18;
+  iVar7 = fthread_mutexattr_init(local_2b8);
+  if (iVar7 != 0) {
+LAB_00816cc8:
+    perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+    exit(1);
+  }
+  iVar7 = fthread_mutexattr_settype(local_2b8,0x4f6e6365);
+  if (iVar7 == 0) {
+    iVar7 = ptt_pthread_mutex_init(sysblk_exref + 0xb00,local_2b8,"impl.c:735");
+  }
+  fthread_mutexattr_destroy(local_2b8);
+  if (iVar7 != 0) goto LAB_00816cc8;
+  ptt_pthread_cond_init(sysblk_exref + 0xb20,0,"impl.c:736");
+  pcVar1 = sysblk_exref + 0xb48;
+  *(code **)(sysblk_exref + 0xb50) = pcVar1;
+  *(code **)(sysblk_exref + 0xb48) = pcVar1;
+  pcVar1 = sysblk_exref + 0xb38;
+  *(code **)(sysblk_exref + 0xb40) = pcVar1;
+  *(code **)(sysblk_exref + 0xb38) = pcVar1;
+  pcVar14 = getenv("HERCULES_CNF");
+  pcVar12 = "hercules.cnf";
+  if (pcVar14 != (char *)0x0) {
+    pcVar12 = pcVar14;
+  }
+  local_4a8 = (char *)0x0;
+  local_2b8[0] = pcVar12;
+  iVar7 = getopt_long(uVar18 & 0xffffffff,puVar21,"hf:db:vs:p:l:",&PTR_DAT_0090dbd0);
+  lVar20 = -1;
+  while (iVar7 != -1) {
+    switch(iVar7) {
+    case 0x62:
+      *(undefined8 *)(sysblk_exref + 0xd40) = *(undefined8 *)optarg_exref;
+      break;
+    default:
+      local_488[0] = 1;
+      break;
+    case 100:
+      *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 2;
+      break;
+    case 0x66:
+      local_2b8[0] = *(char **)optarg_exref;
+      break;
+    case 0x6c:
+      local_470 = 0;
+      pcVar12 = (char *)strtok_r(*(undefined8 *)optarg_exref,&DAT_008a903c,&local_470);
+      while (pcVar12 != (char *)0x0) {
+        if (0x30 < lVar20) {
+          logmsg("HHC01406W Startup parm -l: maximum loadable modules %d exceeded; remainder not loaded\n"
+                 ,0x32);
+          break;
+        }
+        iVar3 = iVar3 + 1;
+        lVar20 = lVar20 + 1;
+        pcVar12 = _strdup(pcVar12);
+        local_448[lVar20] = pcVar12;
+        pcVar12 = (char *)strtok_r(0,&DAT_008a903c,&local_470);
+      }
+      break;
+    case 0x70:
+      if (*(char **)optarg_exref != (char *)0x0) {
+        pcVar12 = _strdup(*(char **)optarg_exref);
+        hdl_setpath(pcVar12,0);
+      }
+      break;
+    case 0x73:
+      uVar22 = 0xffffffffffffffff;
+      local_470 = 0;
+      pcVar12 = *(char **)optarg_exref;
+      do {
+        if (uVar22 == 0) break;
+        uVar22 = uVar22 - 1;
+        cVar2 = *pcVar12;
+        pcVar12 = pcVar12 + 1;
+      } while (cVar2 != '\0');
+      if (2 < ~uVar22 - 1) {
+        pcVar12 = (char *)strtok_r(*(char **)optarg_exref,&DAT_008a9000,&local_470);
+        local_2a8 = strtok_r(0,&DAT_008a9000,&local_470);
+        if ((pcVar12 != (char *)0x0) && (local_2a8 != 0)) {
+          lVar17 = -1;
+          pcVar14 = pcVar12;
+          do {
+            if (lVar17 == 0) break;
+            lVar17 = lVar17 + -1;
+            cVar2 = *pcVar14;
+            pcVar14 = pcVar14 + 1;
+          } while (cVar2 != '\0');
+          iVar5 = 0;
+          pcVar14 = pcVar12;
+          if (0 < (int)(~(uint)lVar17 - 1)) {
+            do {
+              iVar7 = islower((int)*pcVar14);
+              if (iVar7 != 0) {
+                iVar7 = toupper((int)*pcVar14);
+                *pcVar14 = (char)iVar7;
+              }
+              lVar17 = -1;
+              pcVar23 = pcVar12;
+              do {
+                if (lVar17 == 0) break;
+                lVar17 = lVar17 + -1;
+                cVar2 = *pcVar23;
+                pcVar23 = pcVar23 + 1;
+              } while (cVar2 != '\0');
+              iVar5 = iVar5 + 1;
+              pcVar14 = pcVar14 + 1;
+            } while (iVar5 < (int)(~(uint)lVar17 - 1));
+            uVar18 = (ulonglong)local_478;
+          }
+          set_symbol(pcVar12,local_2a8);
+          puVar21 = local_468;
+          break;
+        }
+      }
+      logmsg("HHC01419E Symbol and/or Value is invalid; ignored\n");
+      break;
+    case 0x76:
+      *(uint *)(sysblk_exref + 0xc6f0) = *(uint *)(sysblk_exref + 0xc6f0) | 0x40000000;
+    }
+    pcVar12 = local_2b8[0];
+    iVar5 = (int)uVar18;
+    local_4a8 = (char *)0x0;
+    iVar7 = getopt_long(uVar18 & 0xffffffff,puVar21,"hf:db:vs:p:l:",&PTR_DAT_0090dbd0);
+  }
+  iVar7 = _stricmp(pcVar12,"None");
+  if (iVar7 == 0) {
+    pcVar12 = (char *)0x0;
+  }
+  if ((*(int *)optind_exref < iVar5) || (local_488[0] != 0)) {
+    local_2a8 = 0;
+    strncpy(local_268,*(char **)(sysblk_exref + 0x28),0x104);
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    uVar16 = strtok_r(local_268,&DAT_008a42c8,&local_2a8);
+    logmsg("HHC01407S Usage: %s [-f config-filename] [-d] [-b logo-filename] [-s sym=val]%s [> logfile]\n"
+           ,uVar16," [-p dyn-load-dir] [[-l dynmod-to-load]...]");
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    logmsg("HHC01414S %s\n",&DAT_0088721f);
+    pFVar13 = __iob_func();
+    fflush(pFVar13 + 2);
+    pFVar13 = __iob_func();
+    fflush(pFVar13 + 1);
+    usleep(100000);
+    return 1;
+  }
+  FUN_0082a860();
+  hdl_main();
+  if (-1 < iVar3) {
+    lVar20 = 0;
+    iVar3 = 0;
+    puVar21 = local_448;
+    do {
+      iVar5 = (int)lVar20;
+      pvVar11 = (void *)*puVar21;
+      if (pvVar11 == (void *)0x0) break;
+      iVar5 = hdl_load(pvVar11,0);
+      if (iVar5 != 0) {
+        lVar20 = 1;
+      }
+      iVar5 = (int)lVar20;
+      free(pvVar11);
+      iVar3 = iVar3 + 1;
+      puVar21 = puVar21 + 1;
+    } while (iVar3 < 0x32);
+    if (iVar5 != 0) {
+      usleep(10000);
+      logmsg("HHC01408S Hercules terminating, see previous messages for reason\n");
+      goto LAB_0081685a;
+    }
+  }
+  if ((local_480 == 0) || (iVar3 = hdl_load("dyngui",0), iVar3 == 0)) {
+    signal(2);
+    if (extraout_RAX == -1) {
+      piVar15 = _errno();
+      uVar16 = w32_strerror(*piVar15);
+      pcVar12 = "SIGINT";
+    }
+    else {
+      signal(0xf);
+      if (extraout_RAX_00 == -1) {
+        piVar15 = _errno();
+        uVar16 = w32_strerror(*piVar15);
+        pcVar12 = "SIGTERM";
+      }
+      else {
+        BVar8 = IsDebuggerPresent();
+        if ((BVar8 != 0) || (BVar8 = SetConsoleCtrlHandler(FUN_00815140,1), BVar8 != 0)) {
+          iVar3 = fthread_mutexattr_init(local_488);
+          if (iVar3 == 0) {
+            iVar3 = fthread_mutexattr_settype(local_488,0x4f6e6365);
+            if (iVar3 == 0) {
+              iVar3 = ptt_pthread_mutex_init(sysblk_exref + 0xa70,local_488,"impl.c:986");
+            }
+            fthread_mutexattr_destroy(local_488);
+            if (iVar3 == 0) {
+              iVar3 = fthread_mutexattr_init(local_488);
+              if (iVar3 == 0) {
+                iVar3 = fthread_mutexattr_settype(local_488,0x4f6e6365);
+                if (iVar3 == 0) {
+                  iVar3 = ptt_pthread_mutex_init(sysblk_exref + 0xa90,local_488,"impl.c:987");
+                }
+                fthread_mutexattr_destroy(local_488);
+                if (iVar3 == 0) {
+                  *(undefined4 *)(sysblk_exref + 0xa80) = 0;
+                  *(undefined4 *)(sysblk_exref + 0xaa0) = 0;
+                  socketpair(2,1,0,&local_480);
+                  *(undefined4 *)(sysblk_exref + 0xa84) = local_47c;
+                  *(int *)(sysblk_exref + 0xa88) = local_480;
+                  socketpair(2,1,0,&local_480);
+                  *(undefined4 *)(sysblk_exref + 0xaa4) = local_47c;
+                  *(int *)(sysblk_exref + 0xaa8) = local_480;
+                  if (pcVar12 != (char *)0x0) {
+                    hostpath(local_158,pcVar12,0x104);
+                  }
+                  lVar20 = FUN_00645260();
+                  bVar25 = DAT_00bbd7b0 != 0;
+                  *(longlong *)(sysblk_exref + 0x98) = lVar20 << 8;
+                  if (bVar25) {
+                    local_4a0 = "impl.c:1079";
+                    local_4a8 = "log_do_callback";
+                    iVar3 = ptt_pthread_create(local_450,sysblk_exref + 0xa28,FUN_00815410,0);
+                    if (iVar3 != 0) {
+                      uVar16 = w32_strerror(iVar3);
+                      logmsg("HHC00102E Error in function create_thread(): %s\n",uVar16);
+                    }
+                    return 0;
+                  }
+                  hdl_adsc("release_config",FUN_0065f620,0);
+                  iVar3 = FUN_00629610(pcVar12);
+                  if (iVar3 == 0) {
+                    local_4a0 = "impl.c:1096";
+                    local_4a8 = "process_rc_file";
+                    iVar3 = ptt_pthread_create(local_45c,sysblk_exref + 0xa28,FUN_00815470,0);
+                    if (iVar3 != 0) {
+                      w32_strerror(iVar3);
+                      logmsg("HHC00102E Error in function create_thread(): %s\n");
+                    }
+                    if (((byte)sysblk_exref[0xc3c] & 2) == 0) {
+                      (**(code **)panel_display_exref)();
+                    }
+                    else {
+                      if (*(code **)daemon_task_exref == (code *)0x0) {
+                        *(uint *)(sysblk_exref + 0xc3c) = *(uint *)(sysblk_exref + 0xc3c) | 4;
+                        do {
+                          do {
+                            iVar3 = log_read(&local_458,local_460,1);
+                          } while (iVar3 == 0);
+                          pFVar13 = __iob_func();
+                          iVar5 = _fileno(pFVar13 + 2);
+                          iVar5 = _isatty(iVar5);
+                          if (iVar5 != 0) {
+                            pFVar13 = __iob_func();
+                            w32_fwrite(local_458,(longlong)iVar3,1,pFVar13 + 2);
+                          }
+                        } while( true );
+                      }
+                      (**(code **)daemon_task_exref)();
+                    }
+                    SetConsoleCtrlHandler(FUN_00815140,0);
+                    socket_deinit();
+                    pFVar13 = __iob_func();
+                    w32_fprintf(pFVar13 + 1,"HHC01412I Hercules terminated\n");
+                    pFVar13 = __iob_func();
+                    fflush(pFVar13 + 1);
+                    usleep(10000);
+                    return 0;
+                  }
+                  goto LAB_0081685a;
+                }
+              }
+              perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+              exit(1);
+            }
+          }
+          perror("Fatal error initializing Mutex Locking Model");
+                    /* WARNING: Subroutine does not return */
+          exit(1);
+        }
+        piVar15 = _errno();
+        uVar16 = w32_strerror(*piVar15);
+        pcVar12 = "Console-ctrl";
+      }
+    }
+    logmsg("HHC01410S Cannot register %s handler: %s\n",pcVar12,uVar16);
+  }
+  else {
+    usleep(10000);
+    logmsg("HHC01409S Load of dyngui.dll failed, hercules terminated\n");
+  }
+LAB_0081685a:
+  FUN_00814fd0();
+  return 1;
+}
+
+
+
+## confidence
+
+observed
+
+## authority
+
+shipped-artifact
+
+## environment
+
+null
+
+## limitations
+
+The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.,The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.,Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.,Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.,Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.,External functions and functions without an analyzable body return null; other decompiler failures remain explicit.,Ghidra Listing reports a terminal call at 0x816bd3 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816bea to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816cd8 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816cef to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d06 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d1d to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d34 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d4b to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d62 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d79 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816d90 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816da7 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Ghidra Listing reports a terminal call at 0x816dc0 to EXTERNAL:0x10e MSVCR100.DLL::exit (external=true, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.,Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.,The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.,Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.,The target references PDB hengine.pdb (GUID fb7a369a-7d9e-45f7-9bd2-623afcb635da, age (hex) 1, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.
+
+## relationship_coverage
+
+null
+
+## locations
+
+
+
+## evidence_links
+

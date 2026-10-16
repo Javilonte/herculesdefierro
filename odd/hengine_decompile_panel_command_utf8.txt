@@ -1,0 +1,406 @@
+## evidence_id
+
+ev_93fe377622e9091fc098b0da13fe5fa5191467b046ce4d8ca58da9abaf393b71
+
+## subject.name
+
+hengine.dll
+
+## subject.digest
+
+| Key    | Value                                                            |
+|--------|------------------------------------------------------------------|
+| sha256 | 682cd39c7d621a39f8eebb9ca15d70ba130dab2869062d9af1196f6723976f5b |
+
+## subject.local_path
+
+C:\Users\Frank Gonzalez\Documents\opencodeproyects\bancobolpro\hercules_extracted\windows\64\hengine.dll
+
+## subject.format
+
+pe
+
+## subject.architecture
+
+x86_64
+
+## provider
+
+| Key     | Value  |
+|---------|--------|
+| id      | ghidra |
+| name    | Ghidra |
+| version | 12.1.4 |
+
+## analysis_profile.provider
+
+| Key     | Value  |
+|---------|--------|
+| id      | ghidra |
+| name    | Ghidra |
+| version | 12.1.4 |
+
+## analysis_profile.parameters.target_kind
+
+executable
+
+## analysis_profile.parameters.target_format
+
+pe
+
+## analysis_profile.parameters.executable_role
+
+shared-library
+
+## analysis_profile.parameters.managed
+
+false
+
+## analysis_profile.parameters.native_aot_metadata
+
+| Key                  | Value                       |
+|----------------------|-----------------------------|
+| contract_revision    | rtr-9.1-x64-pe-read-only-v3 |
+| source_bytes         | 134217728                   |
+| work_units           | 67108864                    |
+| working_memory_bytes | 67108864                    |
+| report_bytes         | 4194304                     |
+
+## analysis_profile.parameters.architecture
+
+x86_64
+
+## analysis_profile.parameters.available_architectures
+
+x86_64
+
+## analysis_profile.parameters.import_mode
+
+ephemeral-source-immutable
+
+## analysis_profile.parameters.pdb_observations
+
+program-info-v1
+
+## analysis_profile.parameters.annotation_policy
+
+atomic-function-entry-metadata-v1
+
+## analysis_profile.parameters.load_image_observations
+
+source-mappings-entry-context-v2
+
+## analysis_profile.parameters.function_body_evidence
+
+complete-inclusive-ranges-v1
+
+## analysis_profile.parameters.function_references
+
+complete-body-and-entry-reference-manager-v2
+
+## analysis_profile.parameters.call_relationship_coverage
+
+function-body-call-coverage-v5
+
+## analysis_profile.parameters.function_dossier_coverage
+
+observed-facets-and-call-relationships-v1
+
+## analysis_profile.parameters.string_inventory_evidence
+
+defined-data-coverage-v1
+
+## analysis_profile.parameters.location_resolution
+
+explicit-address-exact-entry-symbol-first-v3
+
+## analysis_profile.parameters.procedure_file_offset_resolution
+
+address-first-unique-target-source-mapping-v2
+
+## analysis_profile.parameters.instruction_flow_evidence
+
+decoded-return-pcode-v1
+
+## analysis_profile.parameters.instruction_references
+
+exact-address-incoming-v1
+
+## analysis_profile.parameters.function_boundary_observations
+
+ghidra-function-boundary-limitations-v3
+
+## analysis_profile.parameters.no_return_repair
+
+disabled-windows-p0
+
+## analysis_profile.parameters.process_launch
+
+official-headless-script-v1
+
+## analysis_profile.parameters.jump_table_evidence
+
+typed-case-default-blocks-v1
+
+## analysis_profile.parameters.decompiler_jump_loads
+
+true
+
+## analysis_profile.parameters.loader
+
+auto-from-header
+
+## analysis_profile.parameters.language_id
+
+auto-from-header
+
+## analysis_profile.parameters.compiler_spec_id
+
+auto-default
+
+## analysis_profile.parameters.analyzer_preset
+
+ghidra-default
+
+## analysis_profile.digest
+
+dcc676845881c04a2d22833fb35d26569462e033daee5e99a95edac5aa61ac05
+
+## predicate_type
+
+rea.analysis
+
+## operation
+
+procedure_pseudo_code
+
+## parameters
+
+| Key       | Value    |
+|-----------|----------|
+| procedure | 0x64ba90 |
+
+## raw_result.value
+
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+
+longlong panel_command_r(char *param_1)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int iVar4;
+  longlong lVar5;
+  void *_Memory;
+  char *pcVar6;
+  ulonglong uVar7;
+  char *pcVar8;
+  uint uVar9;
+  ulonglong uVar10;
+  ulonglong uVar11;
+  undefined1 auStack_8048 [32];
+  char local_8028;
+  undefined2 local_8027 [16383];
+  ulonglong local_28;
+  undefined8 uStack_20;
+  
+                    /* 0x2ba90  38  panel_command_r */
+  uStack_20 = 0x64baa3;
+  local_28 = DAT_008da008 ^ (ulonglong)auStack_8048;
+  if (*param_1 != '\0') {
+    uVar2 = fthread_self();
+    lVar5 = FUN_0062a5f0(uVar2);
+    if (((lVar5 == 0) && (cVar1 = *param_1, cVar1 != '-')) &&
+       (((cVar1 != '.' && (cVar1 != '!')) || (((byte)sysblk_exref[0xc3c] & 0x10) != 0)))) {
+      FUN_007b6b00(param_1);
+    }
+  }
+  cVar1 = *param_1;
+  uVar11 = 1;
+  iVar4 = 1;
+  while ((cVar1 != '\0' && (iVar3 = isspace((int)*param_1), iVar3 != 0))) {
+    param_1 = param_1 + 1;
+    cVar1 = *param_1;
+  }
+  cVar1 = *param_1;
+  uVar7 = 0;
+  uVar10 = uVar7;
+  if (cVar1 != '\0') {
+    pcVar8 = &local_8028;
+    do {
+      iVar4 = (int)uVar11;
+      uVar9 = (uint)uVar10;
+      if (0x7ffe < uVar9) break;
+      if ((uVar9 == 0) && (((cVar1 == '-' || (cVar1 == '#')) && (uVar11 = uVar7, cVar1 == '-')))) {
+        cVar1 = param_1[1];
+        pcVar6 = param_1;
+        while ((param_1 = pcVar6 + 1, uVar11 = 0, cVar1 != '\0' &&
+               (iVar4 = isspace((int)cVar1), iVar4 != 0))) {
+          cVar1 = pcVar6[2];
+          pcVar6 = param_1;
+        }
+      }
+      iVar4 = (int)uVar11;
+      cVar1 = *param_1;
+      param_1 = param_1 + 1;
+      uVar10 = (ulonglong)(uVar9 + 1);
+      *pcVar8 = cVar1;
+      cVar1 = *param_1;
+      pcVar8 = pcVar8 + 1;
+    } while (cVar1 != '\0');
+  }
+  (&local_8028)[uVar10] = '\0';
+  if (local_8028 != '\0') {
+    if ((local_8028 == '.') || (local_8028 == '!')) {
+      if ((char)local_8027[0] == '\0') {
+        local_8027[0] = 0x20;
+      }
+      iVar4 = FUN_00841bb0(local_8027,local_8028 == '!',*(uint *)(sysblk_exref + 0xc3c) >> 4 & 1);
+      goto LAB_0064bc23;
+    }
+    if (iVar4 != 0) {
+      logmsg("HHC01603I %s\n",&local_8028);
+    }
+  }
+  set_symbol(&DAT_008876a0,"$(CUU)");
+  set_symbol(&DAT_008876b0,"$(CCUU)");
+  set_symbol(&DAT_008876c0,"$(DEVN)");
+  _Memory = (void *)resolve_symbol_string(&local_8028);
+  iVar4 = HercCmdLine(_Memory);
+  free(_Memory);
+LAB_0064bc23:
+  return (longlong)iVar4;
+}
+
+
+
+## raw_result.limitations
+
+
+
+## normalized_result
+
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+
+longlong panel_command_r(char *param_1)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int iVar4;
+  longlong lVar5;
+  void *_Memory;
+  char *pcVar6;
+  ulonglong uVar7;
+  char *pcVar8;
+  uint uVar9;
+  ulonglong uVar10;
+  ulonglong uVar11;
+  undefined1 auStack_8048 [32];
+  char local_8028;
+  undefined2 local_8027 [16383];
+  ulonglong local_28;
+  undefined8 uStack_20;
+  
+                    /* 0x2ba90  38  panel_command_r */
+  uStack_20 = 0x64baa3;
+  local_28 = DAT_008da008 ^ (ulonglong)auStack_8048;
+  if (*param_1 != '\0') {
+    uVar2 = fthread_self();
+    lVar5 = FUN_0062a5f0(uVar2);
+    if (((lVar5 == 0) && (cVar1 = *param_1, cVar1 != '-')) &&
+       (((cVar1 != '.' && (cVar1 != '!')) || (((byte)sysblk_exref[0xc3c] & 0x10) != 0)))) {
+      FUN_007b6b00(param_1);
+    }
+  }
+  cVar1 = *param_1;
+  uVar11 = 1;
+  iVar4 = 1;
+  while ((cVar1 != '\0' && (iVar3 = isspace((int)*param_1), iVar3 != 0))) {
+    param_1 = param_1 + 1;
+    cVar1 = *param_1;
+  }
+  cVar1 = *param_1;
+  uVar7 = 0;
+  uVar10 = uVar7;
+  if (cVar1 != '\0') {
+    pcVar8 = &local_8028;
+    do {
+      iVar4 = (int)uVar11;
+      uVar9 = (uint)uVar10;
+      if (0x7ffe < uVar9) break;
+      if ((uVar9 == 0) && (((cVar1 == '-' || (cVar1 == '#')) && (uVar11 = uVar7, cVar1 == '-')))) {
+        cVar1 = param_1[1];
+        pcVar6 = param_1;
+        while ((param_1 = pcVar6 + 1, uVar11 = 0, cVar1 != '\0' &&
+               (iVar4 = isspace((int)cVar1), iVar4 != 0))) {
+          cVar1 = pcVar6[2];
+          pcVar6 = param_1;
+        }
+      }
+      iVar4 = (int)uVar11;
+      cVar1 = *param_1;
+      param_1 = param_1 + 1;
+      uVar10 = (ulonglong)(uVar9 + 1);
+      *pcVar8 = cVar1;
+      cVar1 = *param_1;
+      pcVar8 = pcVar8 + 1;
+    } while (cVar1 != '\0');
+  }
+  (&local_8028)[uVar10] = '\0';
+  if (local_8028 != '\0') {
+    if ((local_8028 == '.') || (local_8028 == '!')) {
+      if ((char)local_8027[0] == '\0') {
+        local_8027[0] = 0x20;
+      }
+      iVar4 = FUN_00841bb0(local_8027,local_8028 == '!',*(uint *)(sysblk_exref + 0xc3c) >> 4 & 1);
+      goto LAB_0064bc23;
+    }
+    if (iVar4 != 0) {
+      logmsg("HHC01603I %s\n",&local_8028);
+    }
+  }
+  set_symbol(&DAT_008876a0,"$(CUU)");
+  set_symbol(&DAT_008876b0,"$(CCUU)");
+  set_symbol(&DAT_008876c0,"$(DEVN)");
+  _Memory = (void *)resolve_symbol_string(&local_8028);
+  iVar4 = HercCmdLine(_Memory);
+  free(_Memory);
+LAB_0064bc23:
+  return (longlong)iVar4;
+}
+
+
+
+## confidence
+
+observed
+
+## authority
+
+shipped-artifact
+
+## environment
+
+null
+
+## limitations
+
+The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.,The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.,Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.,Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.,Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.,External functions and functions without an analyzable body return null; other decompiler failures remain explicit.,Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.,The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.,Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.,The target references PDB hengine.pdb (GUID fb7a369a-7d9e-45f7-9bd2-623afcb635da, age (hex) 1, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.
+
+## relationship_coverage
+
+null
+
+## locations
+
+
+
+## evidence_links
+

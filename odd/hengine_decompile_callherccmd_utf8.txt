@@ -1,0 +1,602 @@
+## evidence_id
+
+ev_f6820cd8d1e6742e70ca7d79a4b5a68f6674ede8fa63cf56fb619835b76a5d30
+
+## subject.name
+
+hengine.dll
+
+## subject.digest
+
+| Key    | Value                                                            |
+|--------|------------------------------------------------------------------|
+| sha256 | 682cd39c7d621a39f8eebb9ca15d70ba130dab2869062d9af1196f6723976f5b |
+
+## subject.local_path
+
+C:\Users\Frank Gonzalez\Documents\opencodeproyects\bancobolpro\hercules_extracted\windows\64\hengine.dll
+
+## subject.format
+
+pe
+
+## subject.architecture
+
+x86_64
+
+## provider
+
+| Key     | Value  |
+|---------|--------|
+| id      | ghidra |
+| name    | Ghidra |
+| version | 12.1.4 |
+
+## analysis_profile.provider
+
+| Key     | Value  |
+|---------|--------|
+| id      | ghidra |
+| name    | Ghidra |
+| version | 12.1.4 |
+
+## analysis_profile.parameters.target_kind
+
+executable
+
+## analysis_profile.parameters.target_format
+
+pe
+
+## analysis_profile.parameters.executable_role
+
+shared-library
+
+## analysis_profile.parameters.managed
+
+false
+
+## analysis_profile.parameters.native_aot_metadata
+
+| Key                  | Value                       |
+|----------------------|-----------------------------|
+| contract_revision    | rtr-9.1-x64-pe-read-only-v3 |
+| source_bytes         | 134217728                   |
+| work_units           | 67108864                    |
+| working_memory_bytes | 67108864                    |
+| report_bytes         | 4194304                     |
+
+## analysis_profile.parameters.architecture
+
+x86_64
+
+## analysis_profile.parameters.available_architectures
+
+x86_64
+
+## analysis_profile.parameters.import_mode
+
+ephemeral-source-immutable
+
+## analysis_profile.parameters.pdb_observations
+
+program-info-v1
+
+## analysis_profile.parameters.annotation_policy
+
+atomic-function-entry-metadata-v1
+
+## analysis_profile.parameters.load_image_observations
+
+source-mappings-entry-context-v2
+
+## analysis_profile.parameters.function_body_evidence
+
+complete-inclusive-ranges-v1
+
+## analysis_profile.parameters.function_references
+
+complete-body-and-entry-reference-manager-v2
+
+## analysis_profile.parameters.call_relationship_coverage
+
+function-body-call-coverage-v5
+
+## analysis_profile.parameters.function_dossier_coverage
+
+observed-facets-and-call-relationships-v1
+
+## analysis_profile.parameters.string_inventory_evidence
+
+defined-data-coverage-v1
+
+## analysis_profile.parameters.location_resolution
+
+explicit-address-exact-entry-symbol-first-v3
+
+## analysis_profile.parameters.procedure_file_offset_resolution
+
+address-first-unique-target-source-mapping-v2
+
+## analysis_profile.parameters.instruction_flow_evidence
+
+decoded-return-pcode-v1
+
+## analysis_profile.parameters.instruction_references
+
+exact-address-incoming-v1
+
+## analysis_profile.parameters.function_boundary_observations
+
+ghidra-function-boundary-limitations-v3
+
+## analysis_profile.parameters.no_return_repair
+
+disabled-windows-p0
+
+## analysis_profile.parameters.process_launch
+
+official-headless-script-v1
+
+## analysis_profile.parameters.jump_table_evidence
+
+typed-case-default-blocks-v1
+
+## analysis_profile.parameters.decompiler_jump_loads
+
+true
+
+## analysis_profile.parameters.loader
+
+auto-from-header
+
+## analysis_profile.parameters.language_id
+
+auto-from-header
+
+## analysis_profile.parameters.compiler_spec_id
+
+auto-default
+
+## analysis_profile.parameters.analyzer_preset
+
+ghidra-default
+
+## analysis_profile.digest
+
+dcc676845881c04a2d22833fb35d26569462e033daee5e99a95edac5aa61ac05
+
+## predicate_type
+
+rea.analysis
+
+## operation
+
+procedure_pseudo_code
+
+## parameters
+
+| Key       | Value    |
+|-----------|----------|
+| procedure | 0x64aee0 |
+
+## raw_result.value
+
+
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+ulonglong CallHercCmd(uint param_1,longlong *param_2,char *param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  uint uVar3;
+  ulonglong uVar4;
+  longlong *plVar5;
+  longlong lVar6;
+  undefined **ppuVar7;
+  char *pcVar8;
+  char *pcVar9;
+  longlong *plVar10;
+  undefined *puVar11;
+  ulonglong uVar12;
+  ulonglong uVar13;
+  undefined1 uVar14;
+  undefined1 auStack_188 [32];
+  char *local_168;
+  char *local_160;
+  uint local_158;
+  undefined1 local_154 [12];
+  undefined1 local_148 [256];
+  ulonglong local_48;
+  
+                    /* 0x2aee0  1  CallHercCmd */
+  local_48 = DAT_008da008 ^ (ulonglong)auStack_188;
+  uVar13 = (ulonglong)(int)param_1;
+  uVar12 = 0xffff8001;
+  local_158 = param_1;
+  if ((0 < (int)param_1) && (iVar2 = _stricmp((char *)*param_2,"cscript"), iVar2 == 0)) {
+    uVar12 = FUN_0062a780(param_1,param_2,param_3);
+    return uVar12;
+  }
+  if ((((param_1 == 0) || ((char *)*param_2 == (char *)0x0)) || (param_3 == (char *)0x0)) ||
+     ((*param_3 == '\0' || (*(char *)*param_2 == '\0')))) {
+    if ((*(uint *)(sysblk_exref + 0xc3c) & 0x100) == 0) {
+      uVar12 = 0;
+    }
+    else if (((byte)sysblk_exref[0xae9] & 0x40) == 0) {
+      uVar3 = FUN_007d1a20();
+      uVar12 = (ulonglong)uVar3;
+    }
+    else {
+      logmsg("HHC02299E Invalid command usage. Type \'help %s\' for assistance.\n",_DAT_00000000);
+      uVar12 = 0xffffffffffffffff;
+    }
+    return uVar12 & 0xffffffff;
+  }
+  if (*(code **)system_command_exref != (code *)0x0) {
+    uVar4 = (**(code **)system_command_exref)(param_1,param_2,param_3);
+    uVar12 = uVar4 & 0xffffffff;
+    if ((int)uVar4 != -0x7fff) {
+      return uVar4;
+    }
+  }
+  if ((*(char *)*param_2 == '#') || (*(char *)*param_2 == '*')) {
+    return 0;
+  }
+  ppuVar7 = &PTR_DAT_0090eee0;
+  puVar11 = PTR_DAT_0090eee0;
+  while (puVar11 != (undefined *)0x0) {
+    if (((ppuVar7[3] != (undefined *)0x0) &&
+        (((byte)sysblk_exref[0xae8] & *(byte *)(ppuVar7 + 5)) != 0)) &&
+       ((((byte)sysblk_exref[0xae9] & 0x40) == 0 || (-1 < (char)*(byte *)(ppuVar7 + 5))))) {
+      puVar11 = ppuVar7[4];
+      if (puVar11 == (undefined *)0x0) {
+        uVar4 = 0xffffffffffffffff;
+        pcVar8 = *ppuVar7;
+        do {
+          if (uVar4 == 0) break;
+          uVar4 = uVar4 - 1;
+          cVar1 = *pcVar8;
+          pcVar8 = pcVar8 + 1;
+        } while (cVar1 != '\0');
+        puVar11 = (undefined *)(~uVar4 - 1);
+      }
+      pcVar8 = (char *)*param_2;
+      uVar4 = 0xffffffffffffffff;
+      pcVar9 = pcVar8;
+      do {
+        if (uVar4 == 0) break;
+        uVar4 = uVar4 - 1;
+        cVar1 = *pcVar9;
+        pcVar9 = pcVar9 + 1;
+      } while (cVar1 != '\0');
+      if (puVar11 < (undefined *)(~uVar4 - 1)) {
+        uVar4 = 0xffffffffffffffff;
+        pcVar9 = pcVar8;
+        do {
+          if (uVar4 == 0) break;
+          uVar4 = uVar4 - 1;
+          cVar1 = *pcVar9;
+          pcVar9 = pcVar9 + 1;
+        } while (cVar1 != '\0');
+        puVar11 = (undefined *)(~uVar4 - 1);
+      }
+      iVar2 = _strnicmp(pcVar8,*ppuVar7,(size_t)puVar11);
+      uVar14 = iVar2 == 0;
+      if ((bool)uVar14) {
+        strlcpy(local_148,*ppuVar7,0x100);
+        *param_2 = (longlong)local_148;
+        lVar6 = 2;
+        pcVar8 = (char *)param_2[uVar13 - 1];
+        pcVar9 = "&";
+        goto code_r0x0064b0ad;
+      }
+    }
+    ppuVar7 = ppuVar7 + 6;
+    puVar11 = *ppuVar7;
+  }
+  goto LAB_0064b1cd;
+  while( true ) {
+    lVar6 = lVar6 + -1;
+    uVar14 = *pcVar8 == *pcVar9;
+    pcVar8 = pcVar8 + 1;
+    pcVar9 = pcVar9 + 1;
+    if (!(bool)uVar14) break;
+code_r0x0064b0ad:
+    if (lVar6 == 0) break;
+  }
+  if ((bool)uVar14) {
+    uVar3 = param_1 - 1;
+    iVar2 = 0;
+    if (0 < (int)uVar3) {
+      uVar12 = (ulonglong)uVar3;
+      plVar5 = param_2;
+      iVar2 = 0;
+      do {
+        lVar6 = -1;
+        pcVar8 = (char *)*plVar5;
+        do {
+          if (lVar6 == 0) break;
+          lVar6 = lVar6 + -1;
+          cVar1 = *pcVar8;
+          pcVar8 = pcVar8 + 1;
+        } while (cVar1 != '\0');
+        plVar5 = plVar5 + 1;
+        iVar2 = iVar2 + ~(uint)lVar6;
+        uVar12 = uVar12 - 1;
+      } while (uVar12 != 0);
+    }
+    lVar6 = (longlong)iVar2;
+    plVar5 = malloc(lVar6 + 8);
+    *plVar5 = (longlong)ppuVar7[3];
+    strlcpy(plVar5 + 1,*param_2,lVar6);
+    if (1 < (int)uVar3) {
+      uVar12 = (ulonglong)(param_1 - 2);
+      plVar10 = param_2;
+      do {
+        plVar10 = plVar10 + 1;
+        strlcat(plVar5 + 1,&DAT_0088787c,lVar6);
+        strlcat(plVar5 + 1,*plVar10,lVar6);
+        uVar12 = uVar12 - 1;
+      } while (uVar12 != 0);
+    }
+    local_160 = "cmdtab.c:392";
+    local_168 = "bgcmd_thread";
+    uVar3 = ptt_pthread_create(local_154,sysblk_exref + 0xa28,FUN_0064ae60,plVar5);
+    uVar13 = (ulonglong)local_158;
+  }
+  else {
+    iVar2 = strncmp((char *)param_2[uVar13 - 1],"&&",2);
+    if (iVar2 == 0) {
+      param_2[uVar13 - 1] = param_2[uVar13 - 1] + 1;
+    }
+    uVar3 = (*(code *)ppuVar7[3])(param_1,param_2,param_3);
+  }
+  uVar12 = (ulonglong)uVar3;
+LAB_0064b1cd:
+  if (((int)uVar12 == -0x7fff) && (((byte)sysblk_exref[0xae8] & 0x76) != 0)) {
+    iVar2 = _strnicmp(param_3,"sf+",3);
+    if ((iVar2 == 0) ||
+       ((((iVar2 = _strnicmp(param_3,"sf-",3), iVar2 == 0 ||
+          (iVar2 = _strnicmp(param_3,"sfc",3), iVar2 == 0)) ||
+         (iVar2 = _strnicmp(param_3,"sfd",3), iVar2 == 0)) ||
+        (iVar2 = _strnicmp(param_3,"sfk",3), iVar2 == 0)))) {
+      uVar3 = FUN_007c25f0(uVar13 & 0xffffffff,param_2);
+      uVar12 = (ulonglong)uVar3;
+    }
+    else if ((param_3[1] == '+') || (param_3[1] == '-')) {
+      uVar12 = FUN_007c6900(param_3);
+    }
+  }
+  return uVar12;
+}
+
+
+
+## raw_result.limitations
+
+
+
+## normalized_result
+
+
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+ulonglong CallHercCmd(uint param_1,longlong *param_2,char *param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  uint uVar3;
+  ulonglong uVar4;
+  longlong *plVar5;
+  longlong lVar6;
+  undefined **ppuVar7;
+  char *pcVar8;
+  char *pcVar9;
+  longlong *plVar10;
+  undefined *puVar11;
+  ulonglong uVar12;
+  ulonglong uVar13;
+  undefined1 uVar14;
+  undefined1 auStack_188 [32];
+  char *local_168;
+  char *local_160;
+  uint local_158;
+  undefined1 local_154 [12];
+  undefined1 local_148 [256];
+  ulonglong local_48;
+  
+                    /* 0x2aee0  1  CallHercCmd */
+  local_48 = DAT_008da008 ^ (ulonglong)auStack_188;
+  uVar13 = (ulonglong)(int)param_1;
+  uVar12 = 0xffff8001;
+  local_158 = param_1;
+  if ((0 < (int)param_1) && (iVar2 = _stricmp((char *)*param_2,"cscript"), iVar2 == 0)) {
+    uVar12 = FUN_0062a780(param_1,param_2,param_3);
+    return uVar12;
+  }
+  if ((((param_1 == 0) || ((char *)*param_2 == (char *)0x0)) || (param_3 == (char *)0x0)) ||
+     ((*param_3 == '\0' || (*(char *)*param_2 == '\0')))) {
+    if ((*(uint *)(sysblk_exref + 0xc3c) & 0x100) == 0) {
+      uVar12 = 0;
+    }
+    else if (((byte)sysblk_exref[0xae9] & 0x40) == 0) {
+      uVar3 = FUN_007d1a20();
+      uVar12 = (ulonglong)uVar3;
+    }
+    else {
+      logmsg("HHC02299E Invalid command usage. Type \'help %s\' for assistance.\n",_DAT_00000000);
+      uVar12 = 0xffffffffffffffff;
+    }
+    return uVar12 & 0xffffffff;
+  }
+  if (*(code **)system_command_exref != (code *)0x0) {
+    uVar4 = (**(code **)system_command_exref)(param_1,param_2,param_3);
+    uVar12 = uVar4 & 0xffffffff;
+    if ((int)uVar4 != -0x7fff) {
+      return uVar4;
+    }
+  }
+  if ((*(char *)*param_2 == '#') || (*(char *)*param_2 == '*')) {
+    return 0;
+  }
+  ppuVar7 = &PTR_DAT_0090eee0;
+  puVar11 = PTR_DAT_0090eee0;
+  while (puVar11 != (undefined *)0x0) {
+    if (((ppuVar7[3] != (undefined *)0x0) &&
+        (((byte)sysblk_exref[0xae8] & *(byte *)(ppuVar7 + 5)) != 0)) &&
+       ((((byte)sysblk_exref[0xae9] & 0x40) == 0 || (-1 < (char)*(byte *)(ppuVar7 + 5))))) {
+      puVar11 = ppuVar7[4];
+      if (puVar11 == (undefined *)0x0) {
+        uVar4 = 0xffffffffffffffff;
+        pcVar8 = *ppuVar7;
+        do {
+          if (uVar4 == 0) break;
+          uVar4 = uVar4 - 1;
+          cVar1 = *pcVar8;
+          pcVar8 = pcVar8 + 1;
+        } while (cVar1 != '\0');
+        puVar11 = (undefined *)(~uVar4 - 1);
+      }
+      pcVar8 = (char *)*param_2;
+      uVar4 = 0xffffffffffffffff;
+      pcVar9 = pcVar8;
+      do {
+        if (uVar4 == 0) break;
+        uVar4 = uVar4 - 1;
+        cVar1 = *pcVar9;
+        pcVar9 = pcVar9 + 1;
+      } while (cVar1 != '\0');
+      if (puVar11 < (undefined *)(~uVar4 - 1)) {
+        uVar4 = 0xffffffffffffffff;
+        pcVar9 = pcVar8;
+        do {
+          if (uVar4 == 0) break;
+          uVar4 = uVar4 - 1;
+          cVar1 = *pcVar9;
+          pcVar9 = pcVar9 + 1;
+        } while (cVar1 != '\0');
+        puVar11 = (undefined *)(~uVar4 - 1);
+      }
+      iVar2 = _strnicmp(pcVar8,*ppuVar7,(size_t)puVar11);
+      uVar14 = iVar2 == 0;
+      if ((bool)uVar14) {
+        strlcpy(local_148,*ppuVar7,0x100);
+        *param_2 = (longlong)local_148;
+        lVar6 = 2;
+        pcVar8 = (char *)param_2[uVar13 - 1];
+        pcVar9 = "&";
+        goto code_r0x0064b0ad;
+      }
+    }
+    ppuVar7 = ppuVar7 + 6;
+    puVar11 = *ppuVar7;
+  }
+  goto LAB_0064b1cd;
+  while( true ) {
+    lVar6 = lVar6 + -1;
+    uVar14 = *pcVar8 == *pcVar9;
+    pcVar8 = pcVar8 + 1;
+    pcVar9 = pcVar9 + 1;
+    if (!(bool)uVar14) break;
+code_r0x0064b0ad:
+    if (lVar6 == 0) break;
+  }
+  if ((bool)uVar14) {
+    uVar3 = param_1 - 1;
+    iVar2 = 0;
+    if (0 < (int)uVar3) {
+      uVar12 = (ulonglong)uVar3;
+      plVar5 = param_2;
+      iVar2 = 0;
+      do {
+        lVar6 = -1;
+        pcVar8 = (char *)*plVar5;
+        do {
+          if (lVar6 == 0) break;
+          lVar6 = lVar6 + -1;
+          cVar1 = *pcVar8;
+          pcVar8 = pcVar8 + 1;
+        } while (cVar1 != '\0');
+        plVar5 = plVar5 + 1;
+        iVar2 = iVar2 + ~(uint)lVar6;
+        uVar12 = uVar12 - 1;
+      } while (uVar12 != 0);
+    }
+    lVar6 = (longlong)iVar2;
+    plVar5 = malloc(lVar6 + 8);
+    *plVar5 = (longlong)ppuVar7[3];
+    strlcpy(plVar5 + 1,*param_2,lVar6);
+    if (1 < (int)uVar3) {
+      uVar12 = (ulonglong)(param_1 - 2);
+      plVar10 = param_2;
+      do {
+        plVar10 = plVar10 + 1;
+        strlcat(plVar5 + 1,&DAT_0088787c,lVar6);
+        strlcat(plVar5 + 1,*plVar10,lVar6);
+        uVar12 = uVar12 - 1;
+      } while (uVar12 != 0);
+    }
+    local_160 = "cmdtab.c:392";
+    local_168 = "bgcmd_thread";
+    uVar3 = ptt_pthread_create(local_154,sysblk_exref + 0xa28,FUN_0064ae60,plVar5);
+    uVar13 = (ulonglong)local_158;
+  }
+  else {
+    iVar2 = strncmp((char *)param_2[uVar13 - 1],"&&",2);
+    if (iVar2 == 0) {
+      param_2[uVar13 - 1] = param_2[uVar13 - 1] + 1;
+    }
+    uVar3 = (*(code *)ppuVar7[3])(param_1,param_2,param_3);
+  }
+  uVar12 = (ulonglong)uVar3;
+LAB_0064b1cd:
+  if (((int)uVar12 == -0x7fff) && (((byte)sysblk_exref[0xae8] & 0x76) != 0)) {
+    iVar2 = _strnicmp(param_3,"sf+",3);
+    if ((iVar2 == 0) ||
+       ((((iVar2 = _strnicmp(param_3,"sf-",3), iVar2 == 0 ||
+          (iVar2 = _strnicmp(param_3,"sfc",3), iVar2 == 0)) ||
+         (iVar2 = _strnicmp(param_3,"sfd",3), iVar2 == 0)) ||
+        (iVar2 = _strnicmp(param_3,"sfk",3), iVar2 == 0)))) {
+      uVar3 = FUN_007c25f0(uVar13 & 0xffffffff,param_2);
+      uVar12 = (ulonglong)uVar3;
+    }
+    else if ((param_3[1] == '+') || (param_3[1] == '-')) {
+      uVar12 = FUN_007c6900(param_3);
+    }
+  }
+  return uVar12;
+}
+
+
+
+## confidence
+
+observed
+
+## authority
+
+shipped-artifact
+
+## environment
+
+null
+
+## limitations
+
+The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.,The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.,Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.,Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.,Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.,External functions and functions without an analyzable body return null; other decompiler failures remain explicit.,Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.,The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.,Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.,The target references PDB hengine.pdb (GUID fb7a369a-7d9e-45f7-9bd2-623afcb635da, age (hex) 1, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.
+
+## relationship_coverage
+
+null
+
+## locations
+
+
+
+## evidence_links
+
