@@ -313,9 +313,11 @@ All SHA-256 hashes of the analysed binaries are recorded in the analysis output 
 ├── LICENSE            # MIT (for the analysis notes)
 ├── .gitignore
 ├── scripts/
-│   ├── setup.ps1       # extracts hercules_run/ from a TK4- v1.00 update 5 zip
-│   └── open-console.bat  # opens a wc3270 console against the local daemon
-└── odd/               # the entire REA evidence trail
+│   ├── setup.ps1        # Windows: extracts hercules_run/ from a TK4- v1.00 update 5 zip
+│   ├── setup.sh         # macOS / Linux: same as setup.ps1 (cross-platform)
+│   ├── open-console.bat # Windows: opens a wc3270 console against the local daemon
+│   └── patch-banner.sh  # macOS / Linux: patches hdt3270 to show a custom banner
+└── odd/                # the entire REA evidence trail
     ├── tasks/
     │   ├── hercules-re.md   # bootstrap .exe analysis
     │   └── hengine-re.md    # CPU-emulator DLL analysis
