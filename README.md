@@ -154,25 +154,17 @@ cd <repo-parent>\hercules_run
 .\hercules\windows\64\hercules.exe -d -f conf\tk4-.cnf
 ```
 
-Hercules starts in the background without a local console. It opens four TCP listeners for remote 3270 access:
-
-- `127.0.0.1:27415` (CPU 0 console)
-- `127.0.0.1:27416` (CPU 1 console)
-- `127.0.0.1:27417` (CPU 2 console)
-- `127.0.0.1:27418` (CPU 3 console)
+Hercules starts in the background without a local console. It opens the **standard TN3270 console listener on TCP port 3270** (logged as `HHC01024I Waiting for console connections on port 3270`). It also opens per-device COMM threads on TCP ports 27415 through 27418 (one per configured CPU), but **those ports are for internal Hercules device traffic (CTC, LCS, channel-attached devices) -- they do NOT accept 3270 client connections and will silently drop them.** Connect wc3270 to port 3270.
 
 #### Connecting with wc3270 (recommended)
 
 The repo ships a helper at `scripts/open-console.bat` that wraps wc3270. Install wc3270 once (download the no-installer zip from the [x3270 wiki](https://x3270.bgp.nu/download.html) and extract to `C:\tools\wc3270-4.5ga6\` -- add that directory to `PATH` for convenience -- or install `wc3270-4.5ga6-setup.exe` with admin rights). Then:
 
 ```powershell
-# open the default CPU 0 console
 ..\herculesdefierro\scripts\open-console.bat
-# or open CPU 1
-..\herculesdefierro\scripts\open-console.bat 1
 ```
 
-The helper auto-detects wc3270 on `PATH` or at the default location, and passes `-model 4` (24x80 screen, the standard MVS console model). From the panel you can type the same commands as in foreground mode.
+The helper auto-detects wc3270 on `PATH` or at the default location, and passes `-model 4` (43x80 colour screen, the standard MVS console model). You should see the Hercules banner with version, host info and the `'HHHH...' HERCULES ...` ASCII art, then the prompt `>`. From there, the same foreground-mode commands work: `devlist`, `ipl 0280`, `q cpu`, `help`, etc.
 
 To stop the daemon, kill the `hercules.exe` process from Task Manager (or `Stop-Process -Name hercules` from PowerShell). The emulator catches `SIGINT` and `SIGTERM` and runs the shutdown callback before exiting.
 
