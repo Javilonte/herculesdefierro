@@ -4,6 +4,21 @@ Reverse-engineering notes and Ghidra-decompiled analysis of the **Hercules mainf
 
 > Hercules emulates the IBM System/370, ESA/390, and z/Architecture instruction sets on commodity hardware. TK4- is a pre-packaged turnkey MVS 3.8j system that runs on top of Hercules. This repository is a structured walk-through of how the Windows version boots and how the CPU emulator is organized, produced with the [REA](https://github.com/morluto/rea) reverse-engineering toolchain and [Ghidra](https://ghidra-sre.org/).
 
+## Quick start
+
+You only need the **TK4- v1.00 update 5** distribution zip (obtain it from the [official TK4- site](https://wotho.ethz.ch/tk4-/) -- do not redistribute it from this repo) and a 64-bit Windows machine. No admin rights required.
+
+```powershell
+# from this repo's root
+.\scripts\setup.ps1
+cd ..\hercules_run
+.\hercules\windows\64\hercules.exe -f conf\tk4-.cnf
+```
+
+The first command extracts the Windows 64-bit emulator, the 28 MVS 3.8j DASD images, the configuration tree, and the JCL/scripts into a sibling directory `hercules_run/`. The second command changes into that directory. The third command starts the emulator in the foreground; you will see the 3270 console in your terminal. Press Ctrl+C to stop.
+
+For headless operation, daemon mode listens on TCP ports 27415 through 27418 so you can connect with a 3270 client (`telnet localhost 27415` after enabling the Windows Telnet Client, or any wc3270-class emulator). See [Running the emulator](#running-the-emulator) for the full guide.
+
 ## What is here
 
 This is **analysis output only**, not redistributed source code or binaries. The original `hercules.exe` and `hengine.dll` are part of the TK4- distribution, released under the **Q Public License** by Juergen Winkelmann. The underlying Hercules source code is (c) 1999-2012 Roger Bowler, Jan Jaeger, and others.
@@ -27,6 +42,8 @@ All SHA-256 hashes of the analysed binaries are recorded in the analysis output 
 ├── README.md        # this file
 ├── LICENSE          # MIT (for the analysis notes)
 ├── .gitignore
+├── scripts/
+│   └── setup.ps1   # extracts hercules_run/ from a TK4- v1.00 update 5 zip
 └── odd/             # the entire REA evidence trail
     ├── tasks/
     │   ├── hercules-re.md   # bootstrap .exe analysis
@@ -45,7 +62,7 @@ All SHA-256 hashes of the analysed binaries are recorded in the analysis output 
     └── ... (full set of REA outputs)
 ```
 
-The `odd/tasks/` subdirectory holds the two feature documents that drive the analysis. Every other file in `odd/` is an evidence artifact referenced from those documents.
+The `scripts/` directory holds the setup helper that produces the runnable environment. The `odd/tasks/` subdirectory holds the two feature documents that drive the static analysis. Every other file in `odd/` is an evidence artifact referenced from those documents.
 
 Each REA output is saved twice when relevant: a `.txt` view (UTF-16 with BOM, as REA emits it) and a `_utf8.txt` view (re-encoded to UTF-8 for portable grep/git tooling).
 
@@ -77,6 +94,90 @@ The `.exe` exports five callbacks (`hdl_depc`, `hdl_init`, `hdl_ddev`, `hdl_reso
 The CPU **dispatcher is a jump-table machinery**, not a single function. `FUN_0082a860` runs once at startup and fills **18+ per-arch opcode tables** in `.data` (one cell = 8-byte function pointer). The per-CPU `run_cpu` loop reads `[arch][opcode1*256 + opcode2]` from `regs->insttab[]` and tail-calls the handler with `regs`. The `ARCH_DEP` macro in the source produces one copy per architecture; you can see the per-arch regions in the procedure inventory.
 
 The `replace_opcode` hook (`replace_opcode_r` at `0x82a6d0`) and the `panel_command` plumbing are wired through the bootstrap callbacks -- they are not fired per-instruction. `system_cleanup` is a no-op stub, a contract marker for the shutdown handshake.
+
+## Running the emulator
+
+The standard way to run Hercules is via the setup helper plus the existing TK4- distribution zip. The helper extracts only the parts you need (Windows 64-bit binaries, configs, DASD, scripts, JCL) into a sibling directory `hercules_run/`, leaving the Linux binaries, 32-bit Windows build, source, and PDFs behind.
+
+### Prerequisites
+
+- **Windows 10 or 11, 64-bit** (Windows Server 2016+ also works).
+- The **TK4- v1.00 update 5** zip (`tk4-_v1.00_current-v05.zip`, ~119 MB). Obtain it from the [official TK4- site](https://wotho.ethz.ch/tk4-/); it is not redistributed here.
+- The zip must be reachable from the script. The default search order is:
+  1. The parent directory of this repo (alongside `herculesdefierro/`).
+  2. `%USERPROFILE%\Downloads`.
+  3. The current directory.
+
+  Pass `-ZipPath <path>` to `setup.ps1` to override.
+
+### What the setup script does
+
+`scripts/setup.ps1` is a PowerShell script that:
+
+- Finds or accepts the TK4- zip.
+- Creates `hercules_run/` as a sibling of this repo.
+- Extracts only the Windows 64-bit subpaths:
+  - `hercules/windows/64/` (hercules.exe + 18 plugin DLLs)
+  - `conf/`, `local_conf/`, `dasd/`, `scripts/`, `log/`, `jcl/`, `tapes/`, `pch/`, `unattended/`, `rdr/`
+- Skips Linux binaries, 32-bit Windows builds, source, documentation PDFs, and the Q Public License text.
+- Verifies that `hercules.exe`, `hengine.dll`, `conf\tk4-.cnf`, and `scripts\ipl.rc` are present.
+- Prints the exact commands to start the emulator.
+
+### Foreground mode (interactive 3270 console)
+
+```powershell
+cd <repo-parent>\hercules_run
+.\hercules\windows\64\hercules.exe -f conf\tk4-.cnf
+```
+
+You will see the Hercules banner, then the 3270 console screen rendered in your terminal. From the panel you can type commands like:
+
+| Command | What it does |
+|---|---|
+| `ipl 0280` | Initial Program Load: boots MVS 3.8j from the SYS1.IPLPARM on dasd pub002.280. |
+| `ipl 0190` | Same, from the work03.190 volume (sometimes used as alternate). |
+| `devlist` | Lists the configured DASD volumes and their device addresses. |
+| `q cpu` or `q` | Shows CPU status (running, stopped, wait state). |
+| `help` | Lists the panel commands. |
+| `start` / `stop` | Start or stop a CPU. |
+| `restart` | Restart the current CPU from its PSW. |
+| `step` | Single-step one instruction (when CPU is stopped). |
+| `shutdown` | Initiate an orderly shutdown of Hercules. |
+
+To exit: press Ctrl+C in the terminal, or type `shutdown` and wait for the orderly power-down.
+
+### Daemon mode (headless, remote 3270)
+
+```powershell
+cd <repo-parent>\hercules_run
+.\hercules\windows\64\hercules.exe -d -f conf\tk4-.cnf
+```
+
+Hercules starts in the background without a local console. It opens four TCP listeners for remote 3270 access:
+
+- `127.0.0.1:27415` (CPU 0 console)
+- `127.0.0.1:27416` (CPU 1 console)
+- `127.0.0.1:27417` (CPU 2 console)
+- `127.0.0.1:27418` (CPU 3 console)
+
+To connect from the same machine, enable the Windows Telnet Client (`Add-WindowsCapability -Online -Name Telnet.Client~~~~0.0.1.0` as Administrator) and run `telnet localhost 27415`, or use any wc3270-class emulator pointing at `localhost:27415`. To stop the daemon, kill the `hercules.exe` process from Task Manager (or `Stop-Process -Name hercules` from PowerShell). The emulator catches `SIGINT` and `SIGTERM` and runs the shutdown callback before exiting.
+
+### Configuration files
+
+- `conf\tk4-.cnf` -- the main configuration; it includes `conf\cbt_dasd.cnf`, `conf\source_dasd.cnf`, `conf\tk4-_updates.cnf` (which in turn pulls in `conf\tk4-_updates\01` through `10`), and `conf\local.cnf` (which pulls in `local_conf\01` through `10`).
+- `local_conf\01..10` -- per-user local overrides. Each number is a TK4- update level; the last one present takes effect. Use these to customise CPU count, main storage size, etc., without editing the upstream config.
+- `scripts\ipl.rc` -- the Hercules RC file that runs after MVS comes up. You can drop MVS commands or Hercules panel commands here.
+- `log\3033.log` -- the main log file, created on first start. Watch this for `HHC*` informational messages and any `HHCA*` warnings.
+
+### Troubleshooting
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| `ERROR: the following required files are missing after extraction` | The zip is not TK4- v1.00 update 5, or it is corrupted. | Re-download from the official site and verify the SHA-256 against the value published in the TK4- update notes. |
+| `Could not auto-discover the TK4- ... zip` | The script cannot find the zip in any default location. | Pass `-ZipPath "C:\full\path\to\tk4-_v1.00_current-v05.zip"` to `setup.ps1`. |
+| Herules exits immediately with `HHC00107E ... file not found` | You are running `hercules.exe` from the wrong directory; the relative paths in `conf\tk4-.cnf` resolve against the cwd. | `cd` to the `hercules_run\` directory before running `hercules.exe`. |
+| The 3270 panel renders as garbage characters | Your terminal codepage is not CP437/CP850. | Run `chcp 437` (or `chcp 850`) before launching Hercules. |
+| Telnet connection to `localhost:27415` refused | The daemon is not running, or you are in foreground mode. | Start with `-d`, or use the foreground terminal console. |
 
 ## Reproducing
 
