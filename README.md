@@ -175,7 +175,7 @@ To connect from the same machine, enable the Windows Telnet Client (`Add-Windows
 |---|---|---|
 | `ERROR: the following required files are missing after extraction` | The zip is not TK4- v1.00 update 5, or it is corrupted. | Re-download from the official site and verify the SHA-256 against the value published in the TK4- update notes. |
 | `Could not auto-discover the TK4- ... zip` | The script cannot find the zip in any default location. | Pass `-ZipPath "C:\full\path\to\tk4-_v1.00_current-v05.zip"` to `setup.ps1`. |
-| Herules exits immediately with `HHC00107E ... file not found` | You are running `hercules.exe` from the wrong directory; the relative paths in `conf\tk4-.cnf` resolve against the cwd. | `cd` to the `hercules_run\` directory before running `hercules.exe`. |
+| Hercules exits immediately with `HHC00107E ... file not found` | You are running `hercules.exe` from the wrong directory; the relative paths in `conf\tk4-.cnf` resolve against the cwd. | `cd` to the `hercules_run\` directory before running `hercules.exe`. |
 | The 3270 panel renders as garbage characters | Your terminal codepage is not CP437/CP850. | Run `chcp 437` (or `chcp 850`) before launching Hercules. |
 | Telnet connection to `localhost:27415` refused | The daemon is not running, or you are in foreground mode. | Start with `-d`, or use the foreground terminal console. |
 
