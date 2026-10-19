@@ -39,12 +39,13 @@ All SHA-256 hashes of the analysed binaries are recorded in the analysis output 
 
 ```
 .
-├── README.md        # this file
-├── LICENSE          # MIT (for the analysis notes)
+├── README.md          # this file
+├── LICENSE            # MIT (for the analysis notes)
 ├── .gitignore
 ├── scripts/
-│   └── setup.ps1   # extracts hercules_run/ from a TK4- v1.00 update 5 zip
-└── odd/             # the entire REA evidence trail
+│   ├── setup.ps1       # extracts hercules_run/ from a TK4- v1.00 update 5 zip
+│   └── open-console.bat  # opens a wc3270 console against the local daemon
+└── odd/               # the entire REA evidence trail
     ├── tasks/
     │   ├── hercules-re.md   # bootstrap .exe analysis
     │   └── hengine-re.md    # CPU-emulator DLL analysis
@@ -160,7 +161,20 @@ Hercules starts in the background without a local console. It opens four TCP lis
 - `127.0.0.1:27417` (CPU 2 console)
 - `127.0.0.1:27418` (CPU 3 console)
 
-To connect from the same machine, enable the Windows Telnet Client (`Add-WindowsCapability -Online -Name Telnet.Client~~~~0.0.1.0` as Administrator) and run `telnet localhost 27415`, or use any wc3270-class emulator pointing at `localhost:27415`. To stop the daemon, kill the `hercules.exe` process from Task Manager (or `Stop-Process -Name hercules` from PowerShell). The emulator catches `SIGINT` and `SIGTERM` and runs the shutdown callback before exiting.
+#### Connecting with wc3270 (recommended)
+
+The repo ships a helper at `scripts/open-console.bat` that wraps wc3270. Install wc3270 once (download the no-installer zip from the [x3270 wiki](https://x3270.bgp.nu/download.html) and extract to `C:\tools\wc3270-4.5ga6\` -- add that directory to `PATH` for convenience -- or install `wc3270-4.5ga6-setup.exe` with admin rights). Then:
+
+```powershell
+# open the default CPU 0 console
+..\herculesdefierro\scripts\open-console.bat
+# or open CPU 1
+..\herculesdefierro\scripts\open-console.bat 1
+```
+
+The helper auto-detects wc3270 on `PATH` or at the default location, and passes `-model 4` (24x80 screen, the standard MVS console model). From the panel you can type the same commands as in foreground mode.
+
+To stop the daemon, kill the `hercules.exe` process from Task Manager (or `Stop-Process -Name hercules` from PowerShell). The emulator catches `SIGINT` and `SIGTERM` and runs the shutdown callback before exiting.
 
 ### Configuration files
 
