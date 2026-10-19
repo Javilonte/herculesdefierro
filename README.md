@@ -19,6 +19,276 @@ The first command extracts the Windows 64-bit emulator, the 28 MVS 3.8j DASD ima
 
 For headless operation, daemon mode listens on TCP ports 27415 through 27418 so you can connect with a 3270 client (`telnet localhost 27415` after enabling the Windows Telnet Client, or any wc3270-class emulator). See [Running the emulator](#running-the-emulator) for the full guide.
 
+## Quick start
+
+The TK4- v1.00 update 5 zip doesn't ship macOS or Linux binaries that are usable from a different host. The `scripts/setup.ps1` script extracts the parts you need for Windows; on macOS/Linux, follow the [Running on macOS](#running-on-macos) section below for a step-by-step setup.
+
+You only need the **TK4- v1.00 update 5** distribution zip (obtain it from the [official TK4- site](https://wotho.ethz.ch/tk4-/) -- do not redistribute it from this repo) and a 64-bit Windows machine, a Mac, or Linux box. No admin rights required on macOS or Linux.
+
+```powershell
+# from this repo's root (Windows)
+.\scripts\setup.ps1
+cd ..\hercules_run
+.\hercules\windows\64\hercules.exe -f conf\tk4-.cnf
+```
+
+```bash
+# from this repo's root (macOS / Linux)
+bash scripts/setup.sh
+cd ../hercules_run
+./hercules/darwin/64/hercules -f conf/tk4-.cnf
+```
+
+The first command extracts the emulator, the 28 MVS 3.8j DASD images, the configuration tree, and the JCL/scripts into a sibling directory `hercules_run/`. The second command changes into that directory. The third command starts the emulator in the foreground; you will see the 3270 console in your terminal. Press Ctrl+C to stop.
+
+For headless operation, daemon mode listens on TCP port 3270 (or one of 27415..27418 for per-CPU COMM threads); see [Running the emulator](#running-the-emulator) for the full guide.
+
+## Running on macOS (step by step)
+
+The TK4- v1.00 update 5 zip only ships binaries for Windows and Linux. To run Hercules on macOS you have to combine the TK4- configs and DASD images with the macOS-built `hercules` binaries from the official Hercules DMG.
+
+Everything below is a copy-paste recipe that assumes you have a Mac with macOS 11 (Big Sur) or newer and admin access. About 1 GB of free disk space is required.
+
+### Step 0 - Prerequisites
+
+Download these two files before doing anything else. Save both to `~/Downloads/`:
+
+- **TK4- v1.00 update 5 zip** (~119 MB): `tk4-_v1.00_current-v05.zip` from [wotho.ethz.ch/tk4-](https://wotho.ethz.ch/tk4-/) (look for the v1.00 update 5 entry on that page).
+- **Hercules 4.x macOS DMG** (~30 MB): from [hercules-390.org](https://www.hercules-390.org/) (the latest stable release; the DMG installs `Hercules.app` into `/Applications/`).
+
+### Step 1 - Install Homebrew (one-time)
+
+Open Terminal (Cmd+Space, type "Terminal", hit Enter) and run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Follow the on-screen instructions. When the installer finishes, it shows a block like:
+
+```bash
+==> Next steps:
+- Run these commands in your shell to add Homebrew to your PATH:
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+Run those two commands (the `echo` line persists across Terminal sessions, the `eval` line is for the current session only). Verify:
+
+```bash
+brew --version
+```
+
+You should see something like `Homebrew 4.x.y`.
+
+### Step 2 - Install the wx3270 3270 GUI client (one-time)
+
+```bash
+brew install --cask x3270
+```
+
+That puts `wx3270.app` into `/Applications/`. (If Homebrew's prefix is `/usr/local/` instead of `/opt/homebrew/`, the app lands in the same `/Applications/`.)
+
+Verify:
+
+```bash
+ls -d /Applications/wx3270.app
+```
+
+You should see the path printed. Open it once from Finder so macOS registers it as a known GUI app.
+
+### Step 3 - Install the Hercules emulator from the DMG
+
+You already downloaded the DMG in Step 0. Double-click it in Finder, then drag the `Hercules` icon onto the `Applications` shortcut the DMG provides. When the copy finishes, eject the DMG.
+
+Verify:
+
+```bash
+ls /Applications/Hercules.app/Contents/MacOS/
+```
+
+You should see a list of files including `hercules` (the main executable), `hengine.dylib`, `hdt3270.dylib`, `hutil.dylib`, `hsys.dylib`, plus several `dasd*` and `hdt*.dylib` plugins.
+
+### Step 4 - Clone this repo into your working folder
+
+```bash
+mkdir -p ~/work && cd ~/work
+git clone https://github.com/Javilonte/herculesdefierro.git
+cd herculesdefierro
+```
+
+(`~/work` is just a suggestion -- any folder will do.)
+
+### Step 5 - Extract TK4- with `scripts/setup.sh`
+
+The script auto-discovers the zip in `~/Downloads/` or `../tk4-...zip` relative to the repo. If your zip is elsewhere, pass the path:
+
+```bash
+bash scripts/setup.sh
+# or, if the zip is somewhere else:
+bash scripts/setup.sh ~/Downloads/tk4-_v1.00_current-v05.zip
+```
+
+You should see output like:
+
+```
+Using zip: /Users/you/Downloads/tk4-_v1.00_current-v05.zip
+Dest dir: /Users/you/work/hercules_run
+Extracted 136 files (skipped 601 unnecessary entries).
+...
+hercules_run/ ready (DASD images in dasd/: 28 files)
+Detected platform: macOS
+
+  NEXT STEPS on macOS:
+  1. Install the official Hercules DMG from https://www.hercules-390.org/.
+  2. Copy the macOS binaries into a darwin/ subdirectory of hercules_run/:
+  ...
+```
+
+Quick sanity check that the configs and DASD images landed correctly:
+
+```bash
+ls ../hercules_run/dasd | wc -l          # should print 28
+test -f ../hercules_run/conf/tk4-.cnf && echo "config OK"
+test -f ../hercules_run/scripts/ipl.rc && echo "ipl.rc OK"
+```
+
+### Step 6 - Copy the macOS Hercules binaries into `hercules_run/`
+
+`scripts/setup.sh` extracted Linux x64 binaries from the zip. Replace them with the Mach-O binaries from the official Hercules DMG, in a `darwin/64/` subdirectory:
+
+```bash
+HERSRC=/Applications/Hercules.app/Contents/MacOS
+HERDEST=../hercules_run/hercules/darwin/64
+mkdir -p "$HERDEST"
+
+cp "$HERSRC/hercules"           "$HERDEST/"
+cp "$HERSRC/hengine.dylib"      "$HERDEST/"
+cp "$HERSRC/hutil.dylib"        "$HERDEST/"
+cp "$HERSRC/hsys.dylib"         "$HERDEST/"
+for f in "$HERSRC"/hdt*.dylib; do
+  [ -f "$f" ] && cp "$f" "$HERDEST/"
+done
+# The official DMG also ships a few CLI helpers (dasdcopy, dasdls, etc.).
+# They're optional for running the emulator itself; copy them if you want them.
+for f in "$HERSRC"/dasd*; do
+  [ -x "$f" ] && cp "$f" "$HERDEST/"
+done
+chmod +x "$HERDEST/hercules" "$HERDEST"/dasd* 2>/dev/null || true
+
+ls "$HERDEST"
+```
+
+You should see at least: `hercules`, `hdt3270.dylib`, `hdt3088.dylib`, `hengine.dylib`, `hutil.dylib`, `hsys.dylib`, plus the `dasd*` helpers you copied.
+
+If your Hercules DMG packaged the files under slightly different paths (e.g. `Contents/Resources/` instead of `Contents/MacOS/`), list the app's Contents with `ls -R /Applications/Hercules.app` and adjust the source path accordingly.
+
+### Step 7 - Apply the welcome-banner patch
+
+The macOS binary is **different** from the Windows one (Mach-O vs PE), so its SHA-256 won't match the known Windows SHA. Use `--discover` first -- the script will find the 8 banner-line strings in your binary and show their offsets, so the maintainer can add macOS support:
+
+```bash
+bash scripts/patch-banner.sh --discover
+```
+
+You should see something like:
+
+```
+=== discover mode ===
+file:   /Users/you/work/hercules_run/hercules/darwin/64/hdt3270.dylib
+size:   49152 bytes
+sha256: <NEW_SHA_FOR_MACOS>
+
+Searching for the 'Hercules Version' ASCII marker...
+  'Hercules Version' found 1 time(s):
+    file offset 0x8c40: ...b'Hercules Version  :\x00\x00...'...
+
+Note: the Windows build (hdt3270.dll @ SHA 0B85525C...) has 'Hercules Version'
+      at file offset 0x77B0 with the 8 lines spanning 0x766B to 0x77EB.
+      Other builds will have different offsets; use the data above to find them.
+```
+
+The `--discover` output is the data the script needs to be extended for macOS. Save it:
+
+```bash
+bash scripts/patch-banner.sh --discover | tee /tmp/hercules-discover.txt
+cat /tmp/hercules-discover.txt
+```
+
+**Two paths from here:**
+
+- **(a) Open an issue** at https://github.com/Javilonte/herculesdefierro/issues and paste the discover output. The maintainer (me, or anyone with a Mac) can extend `scripts/patch-banner.sh` with the macOS offsets and commit it. Next time you run `bash scripts/patch-banner.sh --apply`, it will patch your Mac binary the same way.
+
+- **(b) Compute the offsets yourself.** Open `hdt3270.dylib` in a hex editor (e.g. `xxd` from the CLI or Hex Fiend from the App Store). Find the 8 strings that end the original banner (one per line, in the same order as the Windows binary -- see the offset table below). All 8 sit within ~256 bytes of each other in `.rdata`/`.rodata`. The banner pattern is:
+  - "Hercules Version" (label), "$(VERSION)" (value)
+  - "Host name" / "$(HOSTNAME)"
+  - "Host OS" / "$(HOSTOS)-$(HOSTOSREL) $(HOSTOSVER)"
+  - "Host Architecture" / "$(HOSTARCH)"
+  - "Processors" / "$(HOSTNUMCPUS)"
+  - "LPAR Name" / "$(LPARNAME)"
+  - "Device number" / "$(CSS):$(CCUU)"
+  - "Subchannel" / "$(SUBCHAN)"
+
+  Each label slot is 24 bytes (19 chars content + null + 4 bytes padding). Each value slot is 16 bytes (40 for "Host OS"). Add the offsets you found to `scripts/patch-banner.sh` (`KNOWN_SHAS_MACOS_*` block + `do_apply` for macOS) and commit via a PR.
+
+The patch-banner script's `--apply` mode will refuse if the SHA doesn't match any known whitelist, so you can't accidentally patch the wrong offsets.
+
+### Step 8 - Start the daemon
+
+The default config (`conf/tk4-.cnf`) launches MVS 3.8j automatically after IPL. For interactive use, foreground mode is simplest:
+
+```bash
+cd ../hercules_run
+./hercules/darwin/64/hercules -f conf/tk4-.cnf
+```
+
+You'll see the welcome banner (now patched) followed by an ASCII-art `HHHH ... HERCULES ...` block, then the operator panel prompt `>`. Press Ctrl+C to quit.
+
+For headless daemon mode (`-d`), the daemon opens TCP port 3270 for remote 3270 clients (don't use 27415-27418 -- those are internal per-CPU COMM threads that drop connections):
+
+```bash
+cd ../hercules_run
+./hercules/darwin/64/hercules -d -f conf/tk4-.cnf
+```
+
+### Step 9 - Connect wx3270
+
+Open a second Terminal window and run:
+
+```bash
+/Applications/wx3270.app/Contents/MacOS/wx3270 -model 4 localhost:3270 &
+# or just `open /Applications/wx3270.app` and connect with host=localhost port=3270 model=4
+```
+
+A 3270 GUI window opens. The first screen is the same welcome banner (now patched on the daemon side), followed by MVS prompts after you type `ipl 0280`.
+
+### Step 10 - Shut down cleanly
+
+In the daemon's Terminal, press Ctrl+C. The daemon catches `SIGINT`, runs the cleanup callback, and exits. (The `system_cleanup` symbol from `hengine.dll` is a no-op in 4.00.0 -- that's a quirk of the source, not of our patch -- but the daemon's own signal handler still runs orderly shutdown.)
+
+### Troubleshooting on macOS
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| `bash: python3: command not found` during `setup.sh` / `patch-banner.sh --discover` | macOS doesn't ship `python3` by default on 10.13 or earlier | `brew install python` |
+| `error: cannot find hercules` after starting the daemon | macOS binaries are in the wrong path or not made executable | `chmod +x ../hercules_run/hercules/darwin/64/hercules` and double-check the path |
+| `dlopen(... hdt3270.dylib ...): image not found` | `hdt*.dylib` siblings are missing from `darwin/64/` | Re-run the `cp` lines in Step 6 with the full set of `*.dylib` files from your Hercules install |
+| `Illegal instruction: 4` on Apple Silicon | The Mach-O binaries are Intel-only but you ran them under Rosetta without Rosetta enabled | Either install Rosetta (`softwareupdate --install-rosetta`) or get an arm64 build of Hercules |
+| wc3270/`open-console.bat` works on Windows but wx3270 on Mac reports "Connection refused" | wx3270 is connecting to port 27415 (wrong) instead of 3270 (right) | In wx3270, set Host=`localhost`, Port=`3270` explicitly |
+| `setup.sh: zip file not found` and your zip IS in `~/Downloads/` | The zip filename doesn't exactly match `tk4-_v1.00_current-v05.zip` | `bash scripts/setup.sh /full/path/to/your.zip` |
+| `Tk4-` window 3270 panel shows garbage characters | Terminal codepage is not 037/500 | In the panel preferences, set Terminal codepage to `cp037` |
+
+## Running on Linux
+
+The same flow applies -- `scripts/setup.sh` was designed cross-platform. After step 6 you already have working Linux x64 binaries under `hercules_run/hercules/linux/64/`, so you can skip copying platform binaries. Just:
+
+```bash
+cd ../hercules_run
+./hercules/linux/64/hercules -d -f conf/tk4-.cnf
+```
+
+For the patch, the Linux `hdt3270.so` has the same SHA as Windows `hdt3270.dll` only if both were built from the exact same commit with identical toolchain inputs (rare). Most likely you'll see a different SHA -- run `bash scripts/patch-banner.sh --discover` to see offsets for *your* Linux build.
+
 ## What is here
 
 This is **analysis output only**, not redistributed source code or binaries. The original `hercules.exe` and `hengine.dll` are part of the TK4- distribution, released under the **Q Public License** by Juergen Winkelmann. The underlying Hercules source code is (c) 1999-2012 Roger Bowler, Jan Jaeger, and others.
